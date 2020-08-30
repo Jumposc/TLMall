@@ -1,0 +1,17 @@
+export interface CartListItem {
+    id: string;
+    img: string;
+    name: string;
+    property: string;
+    price: number;
+    amount: number;
+    maxAmount: number;
+    isSelected: boolean;
+}
+export interface MayLikeListItem {
+    id: string;
+    img: string;
+    name: string;
+    place: string;
+    price: number;
+}
