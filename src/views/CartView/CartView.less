@@ -1,0 +1,233 @@
+.CartView {
+    width: 750px;
+    margin: 0 auto;
+
+    > header {
+        position: relative;
+        background-color: #1b7373;
+        height: 180px;
+        color: #fff;
+        overflow: hidden;
+
+        > .title {
+            font-weight: 700;
+            font-size: 34px;
+            text-align: center;
+            line-height: 42px;
+            margin-top: 114px;
+        }
+
+        > .icon {
+            position: absolute;
+            right: 20px;
+            top: 116px;
+            font-size: 28px;
+            // font-weight: 700;
+            line-height: 40px;
+        }
+    }
+
+    > main {
+        min-height: 90vh;
+        padding: 36px 32px;
+        padding-bottom: 128px;
+        background-color: #fafafa;
+
+        > .cart {
+            width: 686px;
+            padding: 0 24px;
+            background-color: #ffffff;
+            margin-bottom: 40px;
+
+            > li {
+                height: 260px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #ebebeb;
+
+                &:last-child {
+                    border: none;
+                }
+
+                > .check-box {
+                    flex: 0 0 auto;
+                    margin-right: 32px;
+
+                    > img {
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+
+                > .img {
+                    flex: 0 0 auto;
+                    margin-right: 15px;
+
+                    > img {
+                        width: 200px;
+                        height: 200px;
+                    }
+                }
+
+                > .details {
+                    flex: 1 0 auto;
+                    position: relative;
+                    font-size: 28px;
+                    height: 200px;
+
+                    > .name {
+                        width: 295px;
+                        height: 82px;
+                        color: #333;
+                        word-break: break-all;
+                        margin-bottom: 16px;
+                        line-height: 41px;
+                        overflow: hidden;
+                        font-weight: 600;
+                    }
+
+                    > .property {
+                        color: #999;
+                        margin-bottom: 16px;
+                        line-height: 40px;
+                    }
+
+                    > .price {
+                        color: #e42121;
+                        font-size: 32px;
+                        line-height: 45px;
+                    }
+
+                    > .amount {
+                        position: absolute;
+                        right: 0;
+                        top: 151px;
+                        display: flex;
+                        align-items: center;
+
+                        > .number {
+                            width: 48px;
+                            height: 48px;
+                            margin: 0 28px;
+                            background: url("/src/views/CartView/assets/number bg.png");
+                            color: #e42121;
+                            font-size: 28px;
+                            line-height: 48px;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .may-like {
+            > .title {
+                text-align: center;
+                color: #333;
+                font-size: 32px;
+                line-height: 45px;
+                margin-bottom: 24px;
+            }
+
+            > .product-list {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                > li {
+                    width: 336px;
+                    margin-bottom: 20px;
+
+                    > .img {
+                        > img {
+                            width: 336px;
+                            height: 336px;
+                        }
+                    }
+
+                    > .details {
+                        position: relative;
+                        height: 158px;
+                        background-color: #fff;
+                        padding: 12px 8px;
+                        font-size: 28px;
+
+                        > .name {
+                            color: #333;
+                            line-height: 43px;
+                            word-break: break-all;
+                            overflow: hidden;
+                            margin-bottom: 8px;
+                        }
+
+                        > .price {
+                            color: #e42121;
+                            line-height: 40px;
+                        }
+
+                        > .place {
+                            position: absolute;
+                            right: 8px;
+                            bottom: 12px;
+                            color: #999;
+                            font-size: 24px;
+                            line-height: 33px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > footer {
+        position: fixed;
+        bottom: 166px;
+        width: 750px;
+        height: 128px;
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 128px;
+        padding: 0 32px;
+
+        > .select-all {
+            flex: 0 0 auto;
+            color: #333;
+            font-size: 28px;
+            line-height: 40px;
+
+            > img {
+                width: 40px;
+                height: 40px;
+                margin-right: 8px;
+                vertical-align: middle;
+            }
+        }
+
+        > .total {
+            flex: 0 0 auto;
+            color: #333;
+            font-size: 24px;
+            line-height: 33px;
+
+            > .sum {
+                color: #e42121;
+                font-size: 32px;
+                line-height: 45px;
+                margin-right: 24px;
+            }
+
+            > .settle {
+                width: 160px;
+                height: 80px;
+                background-color: #1b7373;
+                border: none;
+                outline: none;
+                color: #fff;
+                font-size: 32px;
+                line-height: 80px;
+            }
+        }
+    }
+}

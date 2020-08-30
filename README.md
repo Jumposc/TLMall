@@ -1,2 +1,1 @@
-# TLMall
-腾麟学院2020 商城项目
+# tenglin-react-less-ts-template

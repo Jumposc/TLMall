@@ -1,0 +1,32 @@
+.Tab {
+    position: fixed;
+    bottom: 0;
+    background-color: red;
+    display: flex;
+    width: 750px;
+    height: 166px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    justify-content: space-around;
+    padding-top: 4px;
+
+    > div {
+        flex: 1 0 auto;
+        text-align: center;
+
+        > .img {
+            margin-bottom: 2px;
+
+            > img {
+                width: 62px;
+                height: 62px;
+            }
+        }
+
+        > .name {
+            font-size: 20px;
+            color: #333;
+            line-height: 24px;
+        }
+    }
+}
