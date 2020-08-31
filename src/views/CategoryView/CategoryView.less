@@ -1,0 +1,151 @@
+.CategoryView {
+    width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    >header {
+        flex: 0 0 auto;
+        width: 750px;
+        height: 180px;
+        background-color: #1B7373;
+        >.fixed {
+            position: fixed;
+            background-color: #1B7373;
+            width: 750px;
+            height: 180px;
+            >.search-container {
+                width: 686px;
+                height: 60px;
+                position: absolute;
+                bottom: 9px;
+                margin: 0 32px;
+                background-color: #f0f0f0;
+                border-radius: 40px;
+                >.search-input {
+                    padding: 0 14px;
+                    height: 60px;
+                    display: flex;
+                    align-items: center;
+                    >img {
+                        flex: 0 0 auto;
+                        width: 28px;
+                        height: 28px;
+                        margin-right: 3px;
+                    }
+                    >input {
+                        flex: 1;
+                        outline: none;
+                        background: none;
+                        border: none;
+                        font-size: 24px;
+                        color: #999999;
+                        line-height: 42px;
+                        vertical-align: middle;
+                        padding: 5px 0;
+                    }
+                }
+            }
+        }
+    }
+    >section {
+        flex: 1;
+        margin-top: 36px;
+        display: flex;
+        overflow: auto;
+        >.tab {
+            flex: 0 0 auto;
+            width: 187px;
+            margin-right: 35px;
+            >ul {
+                width: 187px;
+                height: 100%;
+                background-color: #F0F0F0;
+                position: fixed;
+                overflow: auto;
+                padding-bottom: 180px;
+                >li {
+                    height: 106px;
+                    cursor: pointer;
+                    &.activate {
+                        background: url("./assets/classification_leftbar\ pre.png");
+                        >.category-name {
+                            color: #1B7373;
+                            font-size: 32px;
+                            font-weight: bold;
+                        }
+                    }
+                    &:active {
+                        background: url("./assets/classification_leftbar\ pre.png");
+                        >.category-name {
+                            color: #1B7373;
+                            font-size: 32px;
+                            font-weight: bold;
+                        }
+                    }
+                    >.category-name {
+                        height: 106px;
+                        color: #999999;
+                        font-size: 28px;
+                        line-height: 106px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        >.content {
+            @ul: {
+                >ul {
+                    width: (140px * 3px) + 28px + 28px;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-bottom: 35px;
+                    >li {
+                        margin-right: 28px;
+                        margin-bottom: 20px;
+                        cursor: pointer;
+                        &:nth-child(3n) {
+                            margin: 0;
+                        }
+                        >img {
+                            width: 140px;
+                            height: 140px;
+                            object-fit: cover;
+                        }
+                        >.product-name {
+                            text-align: center;
+                            color: #999999;
+                            font-size: 24px;
+                            line-height: 33px;
+                        }
+                    }
+                }
+            }
+            overflow: auto;
+            >.top-ad {
+                margin-bottom: 56px;
+                cursor: pointer;
+                >img {
+                    width: 496px;
+                    height: 248px;
+                    object-fit: cover;
+                }
+            }
+            >.hot-small-category-list {
+                @ul()
+            }
+            >.small-category-list {
+                >.small-category-list-name {
+                    color: #333333;
+                    font-size: 28px;
+                    line-height: 40px;
+                    margin-bottom: 20px;
+                    font-weight: 500;
+                    height: 40px;
+                }
+                @ul()
+            }
+        }
+    }
+}
