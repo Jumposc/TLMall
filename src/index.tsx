@@ -14,6 +14,7 @@ const App = () => (
             routes={[
                 { path: "/home", load: () => import("./views/HomeView/HomeView"), },
                 { path: "/category", load: () => import("./views/CategoryView/CategoryView"), },
+                { path: "/product/detail", load: () => import("./views/ProductDetailView/ProductDetailView"), },
                 // 凌滨{ path: "/discover", load: () => import("./views/DiscoverView/DiscoverView"), },
                 { path: "/cart", load: () => import("./views/CartView/CartView"), },
                 // 金雄{ path: "/mine", load: () => import("./views/MineView/MineView"), },

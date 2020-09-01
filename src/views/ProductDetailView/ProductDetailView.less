@@ -1,0 +1,266 @@
+.ProductDetailView {
+    @padding: 0 40px;
+    margin: 0 auto;
+    position: relative;
+    width: 750px;
+    background-color: #fafafa;
+    color: #333333;
+    padding-bottom: 59px;
+    >header {
+        width: 750px;
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        top: 91px;
+        padding: @padding;
+        z-index: 1;
+        >.back {
+            flex: 0 0 auto;
+        }
+        >.to-card {
+            flex: 0 0 auto;
+        }
+    }
+    >section {
+        >.big-photo {
+            position: relative;
+            >.pager {
+                width: 64px;
+                height: 42px;
+                position: absolute;
+                bottom: 19px;
+                right: 36px;
+                background: url('./accets/product_details_banner_indicator_background.png');
+                text-align: center;
+                line-height: 42px;
+                color: #fff;
+            }
+        }
+        >.main-description {
+            position: relative;
+            height: 245px;
+            background-color: #fff;
+            overflow: hidden;
+            padding: @padding;
+            >* {
+                line-height: 36px;
+            }
+            >.title {
+                font-weight: Bold;
+                font-size: 32px;
+                margin: 28px 0 6px 0;
+            }
+            >.sub-title {
+                font-size: 24px;
+            }
+            >.tag {
+                padding: 0 4px;
+                width: 88px;
+                height: 28px;
+                color: #E42121;
+                font-size: 20px;
+                line-height: 28px;
+                background: url(./accets/product_details_Limited_price_background.png);
+                margin: 16px 0;
+            }
+            >.amount {
+                color: #E42121;
+                font-size: 32px;
+                font-weight: bold;
+                >.source-amount {
+                    color: #999999;
+                    font-size: 24px;
+                    text-decoration: line-through;
+                    margin-left: 24px;
+                }
+            }
+            >.share {
+                position: absolute;
+                right: 0;
+                top: 88px;
+                width: 136px;
+                height: 72px;
+                display: flex;
+                align-items: center;
+                background: url("./accets/product_details_icon_share_background.png");
+                >img {
+                    margin-left: 19px;
+                }
+                >div {
+                    color: #808080;
+                    font-size: 24px;
+                    line-height: 36px;
+                    margin-left: 7px;
+                }
+            }
+        }
+        >.merchant-description {
+            margin: 36px 0;
+            padding: @padding;
+            height: 132px;
+            background: url("./accets/product_details_small_white_background.png");
+            display: flex;
+            flex-direction: column;
+            >.delivery-place {
+                margin-top: 24px;
+                margin-top: 18px;
+                >* {
+                    display: inline-block;
+                }
+                >span {
+                    font-size: 24px;
+                    color: #999999;
+                    margin-right: 24px;
+                }
+                >.city-name {
+                    font-size: 24px;
+                    line-height: 36px;
+                }
+            }
+            >.safeguard-description {
+                margin-top: 24px;
+                margin-bottom: 18px;
+                >* {
+                    display: inline-block;
+                }
+                >span {
+                    font-size: 24px;
+                    color: #999999;
+                    margin-right: 24px;
+                }
+                >.description {
+                    font-size: 24px;
+                    line-height: 36px;
+                }
+            }
+        }
+        >.comment-list {
+            height: 583px;
+            padding: @padding;
+            background: url("./accets/product_details_milddle_white_background.png");
+            overflow: hidden;
+            >.top {
+                display: flex;
+                height: 40px;
+                justify-content: space-between;
+                margin-top: 28px;
+                >.title {
+                    flex: 0 0 auto;
+                    font-weight: bold;
+                    font-size: 28px;
+                    line-height: 40px;
+                }
+                >.see-all {
+                    flex: 0 0 auto;
+                    line-height: 40px;
+                    background: none;
+                    >* {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    >.text {
+                        color: #999;
+                        font-size: 24px;
+                    }
+                }
+            }
+            >.content {
+                >.user {
+                    display: flex;
+                    align-items: center;
+                    margin: 20px 0 36px 0;
+                    >img {
+                        flex: 0 0 auto;
+                        margin-right: 12px;
+                    }
+                    >.right {
+                        flex: 1;
+                        >.nickName {
+                            font-size: 24px;
+                            line-height: 36px;
+                            margin-bottom: 3px;
+                        }
+                    }
+                }
+                >.comment-text {
+                    font-size: 28px;
+                    line-height: 56px;
+                }
+                >.tag-list {
+                    width: 634px;
+                    margin-right: 40px;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    >.tag {
+                        box-sizing: border-box;
+                        height: 40px;
+                        font-size: 20px;
+                        line-height: 40px;
+                        flex: 0 0 auto;
+                        padding: 6px 16px;
+                        background-color: #FAFAFA;
+                        color: #999999;
+                        margin-right: 40px;
+                        margin-top: 15px;
+                    }
+                }
+                >.product-photo-list {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    >img {
+                        flex: 0 0 auto;
+                    }
+                }
+            }
+        }
+    }
+    >footer {
+        position: fixed;
+        bottom: 0;
+        width: 750px;
+        display: flex;
+        flex-direction: row;
+        padding: @padding;
+        background-color: #fff;
+        height: 104px;
+        border: 1px solid #EAEAEA;
+        justify-content: space-between;
+        >.left {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+            >* {
+                text-align: center;
+                color:#999;
+                >.name{
+                    font-size: 24px;
+                    line-height: 18px;
+                    margin-top: 4px;
+                }
+            }
+            >.service {
+                margin-right: 28px;
+            }
+        }
+        >.right {
+            >*{
+                width: 212px;
+                height: 104px;
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 36px;
+                color: #fff;
+            }
+            >.add-cart{
+                background: url("./accets/product_details_button_add_to_cart_background.png");
+                
+            }
+            >.buy{
+                background: url("./accets//product_details_button_buy_background.png");
+            }
+        }
+    }
+}
