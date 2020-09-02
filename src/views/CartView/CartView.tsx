@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./CartView.less";
 import { Tab } from "../../components/Tab/Tab";
-import { Global } from '../../models/Global';
+import { Global } from "../../models/Global";
 
 export interface CartListItem {
     id: string;
@@ -22,7 +22,7 @@ export interface MayLikeListItem {
     price: number;
 }
 
-export interface CartViewProps { }
+export interface CartViewProps {}
 
 export interface CartViewState {
     cartList: CartListItem[];
@@ -30,14 +30,15 @@ export interface CartViewState {
     isAllSelected: boolean;
 }
 
-
-
-export default class CartView extends React.Component<CartViewProps, CartViewState> {
+export default class CartView extends React.Component<
+    CartViewProps,
+    CartViewState
+> {
     state: CartViewState = {
         cartList: [
             {
                 id: "11",
-                img: ("/src/views/CartView/assets/cart_goods photo.png"),
+                img: "/src/views/CartView/assets/cart_goods photo.png",
                 name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
                 property: "绿色",
                 price: 1000,
@@ -47,7 +48,7 @@ export default class CartView extends React.Component<CartViewProps, CartViewSta
             },
             {
                 id: "22",
-                img: ("/src/views/CartView/assets/cart_goods photo1.png"),
+                img: "/src/views/CartView/assets/cart_goods photo1.png",
                 name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
                 property: "绿色",
                 price: 500,
@@ -59,7 +60,7 @@ export default class CartView extends React.Component<CartViewProps, CartViewSta
         mayLikeList: [
             {
                 id: "111",
-                img: ("/src/views/CartView/assets/cart_may like photo.png"),
+                img: "/src/views/CartView/assets/cart_may like photo.png",
                 name: "慢生活 | 铜制口红外壳，手工雕刻",
                 price: 588,
                 place: "杭州",
@@ -134,15 +135,19 @@ export default class CartView extends React.Component<CartViewProps, CartViewSta
                                 >
                                     {v.isSelected ? (
                                         <img
-                                            src={"/src/views/CartView/assets/selected_btn.png"}
+                                            src={
+                                                "/src/views/CartView/assets/selected_btn.png"
+                                            }
                                             alt=""
                                         />
                                     ) : (
-                                            <img
-                                                src={("/src/views/CartView/assets/no_selected_btn.png")}
-                                                alt=""
-                                            />
-                                        )}
+                                        <img
+                                            src={
+                                                "/src/views/CartView/assets/no_selected_btn.png"
+                                            }
+                                            alt=""
+                                        />
+                                    )}
                                 </div>
                                 <div className="img">
                                     <img src={v.img} alt="" />
@@ -152,24 +157,30 @@ export default class CartView extends React.Component<CartViewProps, CartViewSta
                                     <div className="property">{v.property}</div>
                                     <div className="price">￥ {v.price}</div>
                                     <div className="amount">
-                                        <div className="sub"
+                                        <div
+                                            className="sub"
                                             onClick={() => {
                                                 this.onClickSubBtn(v);
                                             }}
                                         >
                                             <img
-                                                src={("/src/views/CartView/assets/sub_btn.png")}
+                                                src={
+                                                    "/src/views/CartView/assets/sub_btn.png"
+                                                }
                                                 alt=""
                                             />
                                         </div>
                                         <div className="number">{v.amount}</div>
-                                        <div className="add"
+                                        <div
+                                            className="add"
                                             onClick={() => {
                                                 this.onClickAddBtn(v);
                                             }}
                                         >
                                             <img
-                                                src={("/src/views/CartView/assets/add_btn.png")}
+                                                src={
+                                                    "/src/views/CartView/assets/add_btn.png"
+                                                }
                                                 alt=""
                                             />
                                         </div>
@@ -199,28 +210,40 @@ export default class CartView extends React.Component<CartViewProps, CartViewSta
                     </div>
                 </main>
                 <footer>
-                    <div className="select-all"
+                    <div
+                        className="select-all"
                         onClick={() => {
                             this.onClickSelectedAllBtn();
                         }}
                     >
                         {this.state.isAllSelected ? (
                             <img
-                                src={("/src/views/CartView/assets/selected_btn.png")}
+                                src={
+                                    "/src/views/CartView/assets/selected_btn.png"
+                                }
                                 alt=""
                             />
                         ) : (
-                                <img
-                                    src={("/src/views/CartView/assets/no_selected_btn.png")}
-                                    alt=""
-                                />
-                            )}
-                            全选
-                        </div>
+                            <img
+                                src={
+                                    "/src/views/CartView/assets/no_selected_btn.png"
+                                }
+                                alt=""
+                            />
+                        )}
+                        全选
+                    </div>
                     <div className="total">
                         <span>合计:</span>
                         <span className="sum">￥ {this.sum()}</span>
-                        <button className="settle">结算</button>
+                        <button
+                            className="settle"
+                            onClick={() => {
+                                Global.history.push("settlement");
+                            }}
+                        >
+                            结算
+                        </button>
                     </div>
                 </footer>
             </div>

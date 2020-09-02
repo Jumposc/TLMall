@@ -1,0 +1,254 @@
+.SettlementView {
+    width: 750px;
+    margin: 0 auto;
+
+    > header {
+        position: relative;
+        background-color: #ffffff;
+        height: 180px;
+        color: #333;
+        overflow: hidden;
+
+        > .title {
+            font-weight: 700;
+            font-size: 34px;
+            text-align: center;
+            line-height: 42px;
+            margin-top: 110px;
+        }
+
+        > .back {
+            position: absolute;
+            left: 22px;
+            bottom: 26px;
+        }
+    }
+
+    > main {
+        min-height: 90vh;
+        padding: 24px 32px;
+        padding-bottom: 128px;
+        background-color: #fafafa;
+
+        > .address {
+            position: relative;
+            background-color: #fff;
+            padding: 28px 24px;
+            margin-bottom: 36px;
+
+            > .user {
+                font-size: 28px;
+                color: #666;
+                line-height: 45px;
+                margin-bottom: 17px;
+
+                > span {
+                    font-size: 32px;
+                    color: #333;
+                    font-weight: 700;
+                    margin-right: 12px;
+                }
+            }
+
+            > .place {
+                font-size: 28px;
+                color: #666;
+                line-height: 40px;
+
+                > span {
+                    background: url("./assets/place_bg.png");
+                    display: inline-block;
+                    width: 84px;
+                    height: 36px;
+                    color: #fff;
+                    font-size: 20px;
+                    text-align: center;
+                    line-height: 36px;
+                }
+            }
+
+            > .more {
+                position: absolute;
+                top: 37px;
+                right: 24px;
+            }
+        }
+
+        > .product-list {
+            background-color: #fff;
+            padding: 0 24px;
+            margin-bottom: 36px;
+
+            > li {
+                padding: 28px 0;
+                border-bottom: 1px solid #ddd;
+
+                &:last-child {
+                    border: none;
+                }
+
+                > .top {
+                    width: 638px;
+                    display: flex;
+                    margin-bottom: 50px;
+
+                    > .img {
+                        flex: 0 0 auto;
+                        margin-right: 16px;
+
+                        > img {
+                            width: 216px;
+                            height: 216px;
+                        }
+                    }
+
+                    > .details {
+                        flex: 1 1 auto;
+
+                        > .name {
+                            font-size: 32px;
+                            font-weight: 700;
+                            color: #333;
+                            line-height: 52px;
+                            overflow: hidden;
+                            margin-bottom: 16px;
+                            word-break: break-all;
+                        }
+
+                        > .property {
+                            font-size: 24px;
+                            color: #999;
+                            line-height: 33px;
+                            margin-bottom: 16px;
+                        }
+
+                        > .price {
+                            font-size: 32px;
+                            color: #e42121;
+                            line-height: 45px;
+                        }
+                    }
+                }
+
+                > .bottom {
+                    > .amount {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        margin-bottom: 38px;
+
+                        > .title {
+                            flex: 0 0 auto;
+                            font-size: 28px;
+                            color: #666;
+                            line-height: 40px;
+                        }
+
+                        > .amount {
+                            flex: 0 0 auto;
+                            display: flex;
+                            align-items: center;
+
+                            > .number {
+                                width: 48px;
+                                height: 48px;
+                                margin: 0 28px;
+                                background: url("/src/views/CartView/assets/number bg.png");
+                                color: #e42121;
+                                font-size: 28px;
+                                line-height: 48px;
+                                text-align: center;
+                            }
+                        }
+                    }
+
+                    > .freight {
+                        font-size: 28px;
+                        color: #666;
+                        line-height: 40px;
+
+                        > span {
+                            float: right;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .voucher {
+            background-color: #fff;
+            padding: 28px 24px;
+
+            > .top {
+                border-bottom: 1px solid #ddd;
+                margin-bottom: 27px;
+                padding-bottom: 27px;
+            }
+
+            > div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-right: 72px;
+                font-size: 28px;
+
+                > .title {
+                    flex: 0 0 auto;
+                    color: #666;
+                    line-height: 40px;
+                }
+
+                > .many {
+                    flex: 0 0 auto;
+                    color: #e42121;
+
+                    &.null {
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+
+    > footer {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 750px;
+        height: 198px;
+        background-color: #fff;
+        padding: 24px 32px;
+
+        > .check-pay {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            > .total {
+                flex: 0 0 auto;
+                font-size: 24px;
+                color: #333;
+
+                > .price {
+                    font-size: 32px;
+                    color: #e42121;
+                    margin-right: 8px;
+                }
+
+                > .discount {
+                    font-size: 24px;
+                    color: #999;
+                }
+            }
+
+            > button {
+                width: 212px;
+                height: 88px;
+                color: #fff;
+                background-color: #1b7373;
+                font-size: 32px;
+            }
+        }
+    }
+}

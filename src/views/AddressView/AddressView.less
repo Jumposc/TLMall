@@ -1,0 +1,122 @@
+.AddressView {
+    width: 750px;
+    margin: 0 auto;
+
+    > header {
+        position: relative;
+        background-color: #ffffff;
+        height: 180px;
+        color: #333;
+        overflow: hidden;
+
+        > .title {
+            font-weight: 700;
+            font-size: 34px;
+            text-align: center;
+            line-height: 42px;
+            margin-top: 110px;
+        }
+
+        > .back {
+            position: absolute;
+            left: 22px;
+            bottom: 26px;
+        }
+    }
+
+    > main {
+        min-height: 90vh;
+        padding: 24px 0;
+        background-color: #fafafa;
+
+        > .address-list {
+            > li {
+                margin-bottom: 36px;
+                padding: 28px 32px;
+                font-size: 28px;
+                color: #333;
+                background-color: #fff;
+
+                > .top {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 33px;
+
+                    > .name {
+                        flex: 0 0 auto;
+                        font-size: 32px;
+                        font-weight: 600;
+                        line-height: 45px;
+                    }
+
+                    > .right {
+                        flex: 0 0 auto;
+
+                        > span {
+                            display: inline-block;
+                            width: 84px;
+                            height: 36px;
+                            text-align: center;
+                            line-height: 36px;
+                            margin-left: 2px;
+                            color: #fff;
+                            font-size: 20px;
+                            background: url("/src/views/AddressView/assets/place_bg.png");
+                        }
+                    }
+                }
+
+                > .place {
+                    padding-bottom: 40px;
+                    line-height: 40px;
+                    border-bottom: 1px solid #ddd;
+                    margin-bottom: 35px;
+                }
+
+                > .bottom {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    > .default-address {
+                        flex: 0 0 auto;
+                        line-height: 26px;
+
+                        > img {
+                            width: 26px;
+                            height: 26px;
+                            margin-right: 8px;
+                            vertical-align: top;
+                        }
+                    }
+
+                    > .op {
+                        flex: 0 0 auto;
+                        line-height: 48px;
+
+                        > img {
+                            width: 48px;
+                            height: 48px;
+                            margin-left: 64px;
+                            vertical-align: top;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    > button {
+        position: fixed;
+        width: 686px;
+        height: 88px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #fff;
+        background-color: #1b7373;
+        font-size: 32px;
+        font-weight: 700;
+    }
+}
