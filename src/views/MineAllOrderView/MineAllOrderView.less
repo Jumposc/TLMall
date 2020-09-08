@@ -1,0 +1,272 @@
+.MineAllOrderView{
+    width: 750px;
+    height: 100%;
+    background-color: #FAFAFA;
+
+    >header{
+        width: 750px;
+        height: 190px;
+        background-color: #ffffff;    
+        display: block;
+
+        > div {
+            width: 750px;
+            height: 88px;
+        }
+        >.top{
+            width:700px ;
+            height:52px;
+            display: flex;
+            flex-direction: row;
+            margin: 0px auto;
+            >.back_MinewView{
+                height:52px;
+                width:50px;
+                flex:0 0 auto;
+                >img {
+                    height:28px;
+                    width:16px;
+                    margin: 10px;
+                }
+            }
+            >.title
+            {
+                width:600px;
+                height:52px;
+                text-align: center;
+                margin: 0px auto;
+                flex:0 0 auto;
+                >h2{
+                    font-size: 34px;
+                    color:#333333FF;
+                    font-family: PingFang SC;
+                    font-weight: bold;
+                }
+            }
+            >.search{
+                height:52px;
+                width:50px;
+                margin: 0px auto;
+                flex: 0 0 auto;
+                >img {
+                    height:28px;
+                    width: 28px;
+                    margin: 10px;
+                }
+            }
+        }
+        
+    }
+    
+    >section{
+        width: 750px;
+        height: 100%;
+        display: block;
+        margin: 0px auto;
+        background-color: #FAFAFA;
+
+        >.order_Nav{
+            height:80px;
+            width: 750px;
+            background-color: #ffffff;
+            >ul {
+                height:80px;
+                width:750px;
+                display: flex;
+                flex-direction:row;
+                >li{
+                    flex: 1;
+                    text-align: center;
+                    background-color: #ffffff;
+                    >.tab-Name{
+                        height: 80px;
+                        font-size: 28px;
+                        color: #666666FF;
+                        line-height: 80px;
+                    }&.active{
+                       height: 80px;
+                       line-height: 80px;
+                       font-size: 28px;
+                       color: #1B7373FF;
+                       line-height: 60px;
+                       border-bottom: solid 5px  #1B7373FF;
+                   }
+                }
+
+            }
+
+        }
+
+        >.orderBlock{
+            >.orderList{
+                height:528px;
+                width: 686px;
+                background-color: #ffffff;
+                display: flex;
+                flex-direction: column;
+                margin: 0px auto;
+                margin-top:36px;
+
+                >.business_TargetInform{
+                    height:75px;
+                    width: 666px;
+                    display: flex;
+                    flex-direction: row; 
+                    margin:10px ;
+                    flex: 0 0 auto;
+                        >.target_Img{
+                            height:66px;
+                            width:66px;
+                            padding: 5px;
+                            margin:5px 5px;
+                            flex:0 0 auto;
+                            >img{
+                                height: 56px;
+                                width: 56px;
+                            }
+                        }
+                        >.target_Name{
+                            height:66px;
+                            width:100px;
+                            flex: 0 0 auto;
+                            padding:5px;
+                            margin: 5px;
+                            line-height: 56px;
+                            color: #333333FF;
+                            font-size: 32px;
+                            font-weight: bold;
+                        }
+                        >.target_Detail{
+                            height:66px;
+                            width:30px;
+                            padding:5px;
+                            flex: 0 0 auto;
+                            >img {
+                                height: 28px;
+                                width: 21px;
+                                margin-top:15px;
+                            }
+                        }
+                        >.business_State{
+                            height: 56px;
+                            width:100px;
+                            margin-left:320px;
+                            text-align: center;
+                            color: #1B7373;
+                            font-size:24px;
+                            margin-top:20px ;
+                        }
+                }
+
+                >.goods_Inform{
+                    height:450px;
+                    width:680px;
+                    padding:5px;
+                    display: flex;
+                    flex-direction: row;
+                    >.goods_Img{
+                        height: 216px;
+                        width: 216px;
+                        margin: 10px;
+                        flex: 0 0 auto;
+                        >img{
+                            height:216px;
+                            width: 216px;
+                        }
+                    }
+                    >.goods_Detail{
+                        width: 420px;
+                        height:300px;
+                        padding:10px;
+                        flex: 0 0 auto;
+                        display: block;
+                        >.goods_Name{
+                        font-family: PingFang SC;
+                        font-size: 28px;
+                        width:410px;
+                        height:83px;
+                        padding: 10px;
+                        color:#333333;
+                        }
+                        >.goods_Status{
+                            width:410px;
+                            height:70px;
+                            >.goods_Stylechoice{
+                                height: 33px;
+                                width:100px;
+                                padding:5px;
+                                font-size:24px;
+                                color: #999999;
+                                display: inline-block;
+                                margin-right:270px ;
+                            }
+                            >.goods_Number{
+                                display: inline-block;
+                                font-size: 24px;
+                                color: #999999;
+                            }
+                        }
+                        >.goods_Service{
+                            width:130px;
+                            height:28px;
+                            text-align: center;
+                            line-height: 28px;
+                            font-size: 20px;
+                            margin-left: 10px;
+                            color: #E42121;
+                            font-family: PingFang SC;
+                            background-color:#F5F5F5;
+                        }
+                        >.goods_AccountItem{
+                            margin-top:40px;
+                            height: 33px;
+                            width: 420px;
+                            font-size: 24px;
+                            font-family: PingFang SC Regular;
+                            >span{
+                                color: #E42121;
+                                font-family: PingFang SC Regular;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+                >.goods_OperateButton{
+                    height: 128px;
+                    width: 666px;
+                    padding: 10px;
+                
+                    >.del_GoodsItem{
+                        width: 164px;
+                        display: inline-block;
+                        margin-left:260px;
+                        >button{
+                            width: 164px;
+                            height:56px;
+                            text-align: center;
+                            background-color: #ffffff;
+                            border: solid 1px #FF999999;
+                            font-size: 28px;
+                            color: #333333;
+                        }
+                    }
+                    >.Appraise_GoodsItem{
+                        width: 164px;
+                        display: inline-block;
+                        margin-left:40px ;
+                        >button{
+                            width: 164px;
+                            height:56px;
+                            text-align: center;
+                            font-size: 28px;
+                            background-color: #ffffff;
+                            border: solid 1px #FF999999;
+                            color: #333333;
+                        }
+                    }
+                }
+        
+            }
+        }
+    }
+}

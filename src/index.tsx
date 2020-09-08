@@ -38,7 +38,14 @@ const App = () => (
                     path: "/address",
                     load: () => import("./views/AddressView/AddressView"),
                 },
-                // 金雄{ path: "/mine", load: () => import("./views/MineView/MineView"), },
+                {
+                    path: "/mine", 
+                    load: () => import("./views/MineView/MineView"), 
+                },
+                {
+                    path: "/mineorder", 
+                    load: () => import("./views/MineAllOrderView/MineAllOrderView"), 
+                },
                 { path: "*", load: () => import("./views/HomeView/HomeView") },
             ]}
         />
