@@ -22,7 +22,7 @@ export interface MayLikeListItem {
     price: number;
 }
 
-export interface CartViewProps {}
+export interface CartViewProps { }
 
 export interface CartViewState {
     cartList: CartListItem[];
@@ -33,7 +33,7 @@ export interface CartViewState {
 export default class CartView extends React.Component<
     CartViewProps,
     CartViewState
-> {
+    > {
     state: CartViewState = {
         cartList: [
             {
@@ -141,13 +141,13 @@ export default class CartView extends React.Component<
                                             alt=""
                                         />
                                     ) : (
-                                        <img
-                                            src={
-                                                "/src/views/CartView/assets/no_selected_btn.png"
-                                            }
-                                            alt=""
-                                        />
-                                    )}
+                                            <img
+                                                src={
+                                                    "/src/views/CartView/assets/no_selected_btn.png"
+                                                }
+                                                alt=""
+                                            />
+                                        )}
                                 </div>
                                 <div className="img">
                                     <img src={v.img} alt="" />
@@ -224,13 +224,13 @@ export default class CartView extends React.Component<
                                 alt=""
                             />
                         ) : (
-                            <img
-                                src={
-                                    "/src/views/CartView/assets/no_selected_btn.png"
-                                }
-                                alt=""
-                            />
-                        )}
+                                <img
+                                    src={
+                                        "/src/views/CartView/assets/no_selected_btn.png"
+                                    }
+                                    alt=""
+                                />
+                            )}
                         全选
                     </div>
                     <div className="total">

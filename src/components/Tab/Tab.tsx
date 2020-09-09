@@ -2,7 +2,7 @@ import React from "react";
 import "./Tab.less";
 import { Global } from "../../models/Global";
 
-export interface TabProps {}
+export interface TabProps { }
 
 export interface TabState {
     selectedIndex: number;
@@ -59,11 +59,14 @@ export class Tab extends React.Component<TabProps, TabState> {
     }
 
     getPathIndex() {
-        // let path = Global.history.location.pathname.split('/')[1]
+        // let path = Global.history.location.pathname.split("/")[1];
         let path = Global.href.replace("#/", "");
         this.state.selectedIndex = this.state.icontList.findIndex(
             (v) => v.path === path
         );
+        Global.isTabShow = this.state.selectedIndex === -1 ? false : true
+        document.getElementById("main")!.style.marginBottom =
+            Global.isTabShow === true ? "166px" : "0px";
         this.forceUpdate();
     }
 
@@ -72,7 +75,7 @@ export class Tab extends React.Component<TabProps, TabState> {
             <div
                 className="Tab"
                 style={{
-                    display: this.state.selectedIndex === -1 ? "none" : "",
+                    display: Global.isTabShow === false ? "none" : "",
                 }}
             >
                 {this.state.icontList.map((v, i) => (
@@ -88,8 +91,8 @@ export class Tab extends React.Component<TabProps, TabState> {
                             {this.state.selectedIndex === i ? (
                                 <img src={v.imgSelected} alt="" />
                             ) : (
-                                <img src={v.img} alt="" />
-                            )}
+                                    <img src={v.img} alt="" />
+                                )}
                         </div>
                         <div className="name">{v.name}</div>
                     </div>

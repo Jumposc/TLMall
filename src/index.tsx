@@ -39,12 +39,13 @@ const App = () => (
                     load: () => import("./views/AddressView/AddressView"),
                 },
                 {
-                    path: "/mine", 
-                    load: () => import("./views/MineView/MineView"), 
+                    path: "/mine",
+                    load: () => import("./views/MineView/MineView"),
                 },
                 {
-                    path: "/mineorder", 
-                    load: () => import("./views/MineAllOrderView/MineAllOrderView"), 
+                    path: "/mineorder",
+                    load: () =>
+                        import("./views/MineAllOrderView/MineAllOrderView"),
                 },
                 { path: "*", load: () => import("./views/HomeView/HomeView") },
             ]}

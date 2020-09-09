@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./AddressView.less";
 import { Global } from "../../models/Global";
 
-export interface AddressViewProps {}
+export interface AddressViewProps { }
 
 export interface AddressViewState {
     addressList: AddressListItem[];
@@ -20,7 +20,7 @@ export interface AddressListItem {
 export default class AddressView extends React.Component<
     AddressViewProps,
     AddressViewState
-> {
+    > {
     state: AddressViewState = {
         addressList: [
             {
@@ -118,8 +118,8 @@ export default class AddressView extends React.Component<
                             </li>
                         ))}
                     </ul>
+                    <button>新增收货地址</button>
                 </main>
-                <button>新增收货地址</button>
             </div>
         );
     }

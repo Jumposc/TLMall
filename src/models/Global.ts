@@ -1,22 +1,25 @@
-import { createBrowserHistory, createHashHistory } from 'history';
-import { Tab } from '../components/Tab/Tab';
+import { createBrowserHistory, createHashHistory } from "history";
+import { Tab } from "../components/Tab/Tab";
 
 export class Global {
-
     // 全局 History
+    static isTabShow = true;
     static history = createHashHistory();
     static get query(): { [key: string]: string | undefined } {
         let search = new URLSearchParams(this.history.location.search);
         let output: { [key: string]: string | undefined } = {};
         search.forEach((v, k) => {
             output[k] = v;
-        })
+        });
         return output;
     }
     static get href(): string {
         return this.history.createHref(this.history.location);
     }
-
-
+    static showTab() {
+        Global.isTabShow = true;
+    }
+    static hideTab() {
+        Global.isTabShow = false;
+    }
 }
-

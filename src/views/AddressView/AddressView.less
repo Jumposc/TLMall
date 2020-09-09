@@ -25,9 +25,10 @@
     }
 
     > main {
-        min-height: 90vh;
+        min-height: calc(100vh - 230px);
         padding: 24px 0;
         background-color: #fafafa;
+        text-align: center;
 
         > .address-list {
             > li {
@@ -72,6 +73,7 @@
                     line-height: 40px;
                     border-bottom: 1px solid #ddd;
                     margin-bottom: 35px;
+                    text-align: left;
                 }
 
                 > .bottom {
@@ -105,18 +107,15 @@
                 }
             }
         }
-    }
 
-    > button {
-        position: fixed;
-        width: 686px;
-        height: 88px;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        color: #fff;
-        background-color: #1b7373;
-        font-size: 32px;
-        font-weight: 700;
+        > button {
+            width: 686px;
+            height: 88px;
+            color: #fff;
+            background-color: #1b7373;
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 88px;
+        }
     }
 }

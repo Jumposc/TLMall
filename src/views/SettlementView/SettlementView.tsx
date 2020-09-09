@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./SettlementView.less";
 import { Global } from "../../models/Global";
 
-export interface SettlementViewProps {}
+export interface SettlementViewProps { }
 
 export interface SettlementViewState {
     orderList: OrderListItem[];
@@ -36,7 +36,7 @@ export interface CouponListItem {
 export default class SettlementView extends React.Component<
     SettlementViewProps,
     SettlementViewState
-> {
+    > {
     state: SettlementViewState = {
         orderList: [
             {
@@ -49,6 +49,7 @@ export default class SettlementView extends React.Component<
                 maxAmount: 10,
                 img: "/src/views/CartView/assets/cart_goods photo.png",
             },
+
             {
                 id: "44",
                 name: "熏香炉纪念版",
@@ -121,7 +122,9 @@ export default class SettlementView extends React.Component<
                     </div>
                 </header>
                 <main>
-                    <div className="address">
+                    <div className="address"
+                        onClick={() => { Global.history.push("/address"); }}
+                    >
                         <div className="user">
                             <span>林设计</span>
                             15111111111
@@ -130,12 +133,7 @@ export default class SettlementView extends React.Component<
                             <span>公司</span>
                             广东省深圳市南山区深圳办公大楼239号
                         </div>
-                        <div
-                            className="more"
-                            onClick={() => {
-                                Global.history.push("/address");
-                            }}
-                        >
+                        <div className="more">
                             <img
                                 src="/src/views/SettlementView/assets/right_btn.png"
                                 alt=""
@@ -222,14 +220,14 @@ export default class SettlementView extends React.Component<
                                     (v) => v.isSelected === true
                                 )
                                     ? `满${
-                                          this.state.voucherList.find(
-                                              (v) => v.isSelected === true
-                                          )?.limit
-                                      }减${
-                                          this.state.voucherList.find(
-                                              (v) => v.isSelected === true
-                                          )?.price
-                                      }`
+                                    this.state.voucherList.find(
+                                        (v) => v.isSelected === true
+                                    )?.limit
+                                    }减${
+                                    this.state.voucherList.find(
+                                        (v) => v.isSelected === true
+                                    )?.price
+                                    }`
                                     : "无"}
                             </div>
                         </div>
@@ -248,8 +246,8 @@ export default class SettlementView extends React.Component<
                                     (v) => v.isSelected === true
                                 )
                                     ? this.state.couponList.find(
-                                          (v) => v.isSelected === true
-                                      )?.price
+                                        (v) => v.isSelected === true
+                                    )?.price
                                     : "无"}
                             </div>
                         </div>
