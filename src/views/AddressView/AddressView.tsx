@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./AddressView.less";
 import { Global } from "../../models/Global";
+import { CartDB } from '../CartView/CartDB';
 
 export interface AddressViewProps { }
 
@@ -10,6 +11,7 @@ export interface AddressViewState {
 }
 
 export interface AddressListItem {
+    id: string;
     name: string;
     tel: string;
     remarks: string;
@@ -23,43 +25,48 @@ export default class AddressView extends React.Component<
     > {
     state: AddressViewState = {
         addressList: [
-            {
-                name: "李小姐",
-                tel: "13xxxxxxxxx",
-                remarks: "公司",
-                address: "xxx xxx xxx xxxxxxxxx",
-                isDefault: true,
-            },
-            {
-                name: "王先生",
-                tel: "13xxxxxxxxx",
-                remarks: "学校",
-                address: "xxx xxx xxx xxxxxxxxx",
-                isDefault: false,
-            },
-            {
-                name: "林设计",
-                tel: "13xxxxxxxxx",
-                remarks: "家",
-                address: "xxx xxx xxx xxxxxxxxx",
-                isDefault: false,
-            },
-            {
-                name: "王先生",
-                tel: "13xxxxxxxxx",
-                remarks: "学校",
-                address: "xxx xxx xxx xxxxxxxxx",
-                isDefault: false,
-            },
-            {
-                name: "林设计",
-                tel: "13xxxxxxxxx",
-                remarks: "家",
-                address: "xxx xxx xxx xxxxxxxxx",
-                isDefault: false,
-            },
+            // {
+            //     id:"11",
+            //     name: "李小姐",
+            //     tel: "13xxxxxxxxx",
+            //     remarks: "公司",
+            //     address: "xxx xxx xxx xxxxxxxxx",
+            //     isDefault: true,
+            // },
+
         ],
     };
+
+    componentDidMount() {
+        let data = CartDB.getCartDB().getAdderssData()
+        this.state.addressList = data.addressList.slice()
+        this.forceUpdate()
+    }
+
+    onSelectDefaultAddress(v: AddressListItem) {
+        let res = CartDB.getCartDB().selectDefaultAddress(v)
+        if (res.status !== 200) {
+            alert('修改失败')
+            return
+        }
+        this.state.addressList.forEach(value => { value.isDefault = false })
+        v.isDefault = true
+        this.forceUpdate()
+    }
+
+    onClickDelBtn(id: string, index: number) {
+        if (this.state.addressList[index].isDefault === true) {
+            alert('不能删除默认地址选项')
+            return
+        }
+        let res = CartDB.getCartDB().delAddressById(id)
+        if (res.status !== 200) {
+            alert('删除失败')
+            return
+        }
+        this.state.addressList.splice(index, 1)
+        this.forceUpdate()
+    }
 
     render() {
         return (
@@ -91,7 +98,8 @@ export default class AddressView extends React.Component<
                                 </div>
                                 <div className="place">{v.address}</div>
                                 <div className="bottom">
-                                    <div className="default-address">
+                                    <div className="default-address"
+                                        onClick={() => { this.onSelectDefaultAddress(v) }}>
                                         <img
                                             src={
                                                 v.isDefault === true
@@ -103,16 +111,15 @@ export default class AddressView extends React.Component<
                                         默认地址
                                     </div>
                                     <div className="op">
-                                        <img
-                                            src="/src/views/AddressView/assets/edit.png"
-                                            alt=""
-                                        />
-                                        编辑
-                                        <img
-                                            src="/src/views/AddressView/assets/delete.png"
-                                            alt=""
-                                        />
-                                        删除
+                                        <span>
+                                            <img src="/src/views/AddressView/assets/edit.png" />
+                                            编辑
+                                        </span>
+                                        <span
+                                            onClick={() => { this.onClickDelBtn(v.id, i) }}>
+                                            <img src="/src/views/AddressView/assets/delete.png" />
+                                            删除
+                                        </span>
                                     </div>
                                 </div>
                             </li>

@@ -2,24 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SettlementView.less";
 import { Global } from "../../models/Global";
+import { CartDB } from '../CartView/CartDB';
+import { AddressListItem } from '../AddressView/AddressView'
+import { Product } from '../CartView/CartView'
 
 export interface SettlementViewProps { }
 
 export interface SettlementViewState {
-    orderList: OrderListItem[];
+    buyerAddress: AddressListItem;
+    orderList: Product[];
     voucherList: VoucherListItem[];
     couponList: CouponListItem[];
-}
-
-export interface OrderListItem {
-    id: string;
-    name: string;
-    property: string;
-    price: number;
-    amount: number;
-    freight: number;
-    maxAmount: number;
-    img: string;
 }
 
 export interface VoucherListItem {
@@ -38,70 +31,99 @@ export default class SettlementView extends React.Component<
     SettlementViewState
     > {
     state: SettlementViewState = {
+        buyerAddress: {
+            id: "11",
+            name: "李小姐",
+            tel: "13xxxxxxxxx",
+            remarks: "公司",
+            address: "xxx xxx xxx xxxxxxxxx",
+            isDefault: true,
+        },
         orderList: [
-            {
-                id: "33",
-                name: "承唐宋之风原创三合一熏香炉纪念版",
-                property: "绿色",
-                price: 2000,
-                amount: 3,
-                freight: 0,
-                maxAmount: 10,
-                img: "/src/views/CartView/assets/cart_goods photo.png",
-            },
+            // {
+            //     id: "33",
+            //     name: "承唐宋之风原创三合一熏香炉纪念版",
+            //     property: "绿色",
+            //     price: 2000,
+            //     amount: 3,
+            //     freight: 0,
+            //     maxAmount: 10,
+            //     img: "/src/views/CartView/assets/cart_goods photo.png",
+            // },
 
-            {
-                id: "44",
-                name: "熏香炉纪念版",
-                property: "红色",
-                price: 500,
-                amount: 1,
-                maxAmount: 10,
-                freight: 10,
-                img: "/src/views/CartView/assets/cart_goods photo.png",
-            },
+            // {
+            //     id: "44",
+            //     name: "熏香炉纪念版",
+            //     property: "红色",
+            //     price: 500,
+            //     amount: 1,
+            //     maxAmount: 10,
+            //     freight: 10,
+            //     img: "/src/views/CartView/assets/cart_goods photo.png",
+            // },
         ],
         voucherList: [
-            {
-                limit: 200,
-                price: 20,
-                isSelected: true,
-            },
+            // {
+            //     limit: 200,
+            //     price: 20,
+            //     isSelected: true,
+            // },
         ],
         couponList: [
-            {
-                price: 20,
-                isSelected: false,
-            },
+            // {
+            //     price: 20,
+            //     isSelected: false,
+            // },
         ],
     };
 
-    onClickSubBtn(v: OrderListItem) {
+    componentDidMount() {
+        let data = CartDB.getCartDB().getOrderData()
+        this.state.orderList = data.orderList.slice()
+        this.state.voucherList = data.voucherList.slice()
+        this.state.couponList = data.couponList.slice()
+        this.state.buyerAddress = data.buyerAddress!
+        this.forceUpdate()
+    }
+
+    onClickSubBtn(v: Product) {
         if (v.amount <= 1) {
             return;
         }
         v.amount--;
+        let res = CartDB.getCartDB().updataCartProduct(v)
+        if (res.status !== 200) {
+            alert('商品信息错误')
+            v.amount++;
+            return
+        }
         this.forceUpdate();
     }
 
-    onClickAddBtn(v: OrderListItem) {
+    onClickAddBtn(v: Product) {
         if (v.amount >= v.maxAmount) {
             return;
         }
         v.amount++;
+        let res = CartDB.getCartDB().updataCartProduct(v)
+        if (res.status !== 200) {
+            alert('商品信息错误')
+            v.amount--;
+            return
+        }
         this.forceUpdate();
     }
 
     total() {
         return this.state.orderList.reduce((total, v) => {
-            return total + v.price * v.amount;
+            return total + v.price * v.amount + v.freight;
         }, 0);
     }
 
     voucher() {
-        let v = this.state.voucherList.find((v) => v.isSelected === true);
-        let c = this.state.couponList.find((v) => v.isSelected === true);
-        return (v ? v.price : 0) + (c ? c.price : 0);
+        let voucher = this.state.voucherList.find((v) => v.isSelected === true);
+        let coupon = this.state.couponList.find((v) => v.isSelected === true);
+        return (voucher ? voucher.price : 0) + (coupon ? coupon.price : 0);
     }
 
     render() {
@@ -126,12 +148,12 @@ export default class SettlementView extends React.Component<
                         onClick={() => { Global.history.push("/address"); }}
                     >
                         <div className="user">
-                            <span>林设计</span>
-                            15111111111
+                            <span>{this.state.buyerAddress.name}</span>
+                            {this.state.buyerAddress.tel}
                         </div>
                         <div className="place">
-                            <span>公司</span>
-                            广东省深圳市南山区深圳办公大楼239号
+                            <span>{this.state.buyerAddress.remarks}</span>
+                            {this.state.buyerAddress.address}
                         </div>
                         <div className="more">
                             <img
@@ -219,12 +241,10 @@ export default class SettlementView extends React.Component<
                                 {this.state.voucherList.find(
                                     (v) => v.isSelected === true
                                 )
-                                    ? `满${
-                                    this.state.voucherList.find(
+                                    ? `满${this.state.voucherList.find(
                                         (v) => v.isSelected === true
                                     )?.limit
-                                    }减${
-                                    this.state.voucherList.find(
+                                    }减${this.state.voucherList.find(
                                         (v) => v.isSelected === true
                                     )?.price
                                     }`

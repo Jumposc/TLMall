@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./CartView.less";
-import { Tab } from "../../components/Tab/Tab";
 import { Global } from "../../models/Global";
+import { CartDB } from './CartDB';
 
-export interface CartListItem {
+export interface Product {
     id: string;
     img: string;
     name: string;
@@ -12,6 +12,7 @@ export interface CartListItem {
     price: number;
     amount: number;
     maxAmount: number;
+    freight: number,
     isSelected: boolean;
 }
 export interface MayLikeListItem {
@@ -25,7 +26,7 @@ export interface MayLikeListItem {
 export interface CartViewProps { }
 
 export interface CartViewState {
-    cartList: CartListItem[];
+    cartList: Product[];
     mayLikeList: MayLikeListItem[];
     isAllSelected: boolean;
 }
@@ -36,69 +37,103 @@ export default class CartView extends React.Component<
     > {
     state: CartViewState = {
         cartList: [
-            {
-                id: "11",
-                img: "/src/views/CartView/assets/cart_goods photo.png",
-                name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 1000,
-                amount: 5,
-                maxAmount: 10,
-                isSelected: true,
-            },
-            {
-                id: "22",
-                img: "/src/views/CartView/assets/cart_goods photo1.png",
-                name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 500,
-                amount: 2,
-                maxAmount: 10,
-                isSelected: false,
-            },
+            // {
+            //     id: "11",
+            //     img: "/src/views/CartView/assets/cart_goods photo.png",
+            //     name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
+            //     property: "绿色",
+            //     price: 1000,
+            //     amount: 5,
+            //     maxAmount: 10,
+            //     isSelected: true,
+            // },
+            // {
+            //     id: "22",
+            //     img: "/src/views/CartView/assets/cart_goods photo1.png",
+            //     name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
+            //     property: "绿色",
+            //     price: 500,
+            //     amount: 2,
+            //     maxAmount: 10,
+            //     isSelected: false,
+            // },
         ],
         mayLikeList: [
-            {
-                id: "111",
-                img: "/src/views/CartView/assets/cart_may like photo.png",
-                name: "慢生活 | 铜制口红外壳，手工雕刻",
-                price: 588,
-                place: "杭州",
-            },
+            // {
+            //     id: "111",
+            //     img: "/src/views/CartView/assets/cart_may like photo.png",
+            //     name: "慢生活 | 铜制口红外壳，手工雕刻",
+            //     price: 588,
+            //     place: "杭州",
+            // },
         ],
         isAllSelected: false,
     };
 
-    onClickSubBtn(v: CartListItem) {
-        if (v.amount <= 1) {
-            return;
-        }
-        v.amount--;
-        this.forceUpdate();
-    }
-
-    onClickAddBtn(v: CartListItem) {
-        if (v.amount >= v.maxAmount) {
-            return;
-        }
-        v.amount++;
-        this.forceUpdate();
-    }
-
-    onClickSelectBtn(v: CartListItem) {
-        v.isSelected = !v.isSelected;
-
+    componentDidMount() {
+        let CartData = CartDB.getCartDB().getCartData()
+        this.state.cartList = CartData.cartList.slice()
+        this.state.mayLikeList = CartData.mayLikeList.slice()
         this.state.isAllSelected = this.state.cartList.find(
             (v) => v.isSelected === false
         )
             ? false
             : true;
+        this.forceUpdate()
+    }
 
+    onClickSubBtn(v: Product) {
+        if (v.amount <= 1) {
+            return;
+        }
+        v.amount--;
+        let res = CartDB.getCartDB().updataCartProduct(v)
+        if (res.status !== 200) {
+            alert('商品信息错误')
+            v.amount++;
+            return
+        }
+        this.forceUpdate();
+    }
+
+    onClickAddBtn(v: Product) {
+        if (v.amount >= v.maxAmount) {
+            return;
+        }
+        v.amount++;
+        let res = CartDB.getCartDB().updataCartProduct(v)
+        if (res.status !== 200) {
+            alert('商品信息错误')
+            v.amount--;
+            return
+        }
+        this.forceUpdate();
+    }
+
+    onClickSelectBtn(v: Product) {
+        v.isSelected = !v.isSelected;
+        let res = CartDB.getCartDB().updataCartProduct(v)
+        if (res.status !== 200) {
+            alert('商品信息错误')
+            v.isSelected = !v.isSelected;
+            return
+        }
+        this.state.isAllSelected = this.state.cartList.find(
+            (v) => v.isSelected === false
+        )
+            ? false
+            : true;
         this.forceUpdate();
     }
 
     onClickSelectedAllBtn() {
         this.state.isAllSelected = !this.state.isAllSelected;
+        let res = CartDB.getCartDB().updataAllCartProductSelected(this.state.isAllSelected)
+        if (res.status !== 200) {
+            alert('修改失败')
+            this.state.isAllSelected = !this.state.isAllSelected;
+            return
+        }
         this.state.cartList.forEach((v) => {
             v.isSelected = this.state.isAllSelected;
         });
@@ -210,34 +245,23 @@ export default class CartView extends React.Component<
                     </div>
                 </main>
                 <footer>
-                    <div
-                        className="select-all"
+                    <div className="select-all"
                         onClick={() => {
                             this.onClickSelectedAllBtn();
                         }}
                     >
                         {this.state.isAllSelected ? (
-                            <img
-                                src={
-                                    "/src/views/CartView/assets/selected_btn.png"
-                                }
-                                alt=""
-                            />
-                        ) : (
-                                <img
-                                    src={
-                                        "/src/views/CartView/assets/no_selected_btn.png"
-                                    }
-                                    alt=""
-                                />
+                            <img src={"/src/views/CartView/assets/selected_btn.png"} />
+                        ) :
+                            (
+                                <img src={"/src/views/CartView/assets/no_selected_btn.png"} />
                             )}
                         全选
                     </div>
                     <div className="total">
                         <span>合计:</span>
                         <span className="sum">￥ {this.sum()}</span>
-                        <button
-                            className="settle"
+                        <button className={this.state.cartList.find(v => v.isSelected === true) ? "settle" : "settle disabled"}
                             onClick={() => {
                                 Global.history.push("settlement");
                             }}
