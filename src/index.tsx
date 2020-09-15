@@ -21,7 +21,7 @@ const App = () => (
                     load: () => import("./views/CategoryView/CategoryView"),
                 },
                 {
-                    path: "/product/detail",
+                    path: "/productDetail",
                     load: () =>
                         import("./views/ProductDetailView/ProductDetailView"),
                 },
