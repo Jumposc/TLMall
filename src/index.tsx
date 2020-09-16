@@ -22,8 +22,7 @@ const App = () => (
                 },
                 {
                     path: "/productDetail",
-                    load: () =>
-                        import("./views/ProductDetailView/ProductDetailView"),
+                    
                 },
                 // 凌滨{ path: "/discover", load: () => import("./views/DiscoverView/DiscoverView"), },
                 {
@@ -44,8 +43,7 @@ const App = () => (
                 },
                 {
                     path: "/mineorder",
-                    load: () =>
-                        import("./views/MineAllOrderView/MineAllOrderView"),
+                    load: () => import("./views/MineAllOrderView/MineAllOrderView"),
                 },
                 { path: "*", load: () => import("./views/HomeView/HomeView") },
             ]}

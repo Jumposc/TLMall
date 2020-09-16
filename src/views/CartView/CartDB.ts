@@ -1,5 +1,50 @@
-import { AddressListItem } from '../AddressView/AddressView';
-import { Product } from './CartView'
+export interface AddressListItem {
+    id: string;
+    name: string;
+    tel: string;
+    remarks: string;
+    address: string;
+    isDefault: boolean;
+}
+
+export interface Product {
+    id: string;
+    img: string;
+    name: string;
+    property: string;
+    price: number;
+    amount: number;
+    maxAmount: number;
+    freight: number,
+    isSelected: boolean;
+}
+
+export interface MayLikeListItem {
+    id: string;
+    img: string;
+    name: string;
+    place: string;
+    price: number;
+}
+
+export interface VoucherListItem {
+    limit: number;
+    price: number;
+    isSelected: boolean;
+}
+
+export interface CouponListItem {
+    price: number;
+    isSelected: boolean;
+}
+
+export interface CartData {
+    cartList: Product[]
+    mayLikeList: MayLikeListItem[]
+    voucherList: VoucherListItem[]
+    couponList: CouponListItem[]
+    addressList: AddressListItem[]
+}
 
 export class CartDB {
     static _cartData: CartDB;
@@ -10,7 +55,7 @@ export class CartDB {
         return this._cartData
     }
 
-    _data = {
+    _data: CartData = {
         cartList: [
             {
                 id: "11",
