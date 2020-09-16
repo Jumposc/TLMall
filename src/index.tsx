@@ -22,7 +22,7 @@ const App = () => (
                 },
                 {
                     path: "/productDetail",
-                    
+                    load: () => import("./views/ProductDetailView/ProductDetailView"),
                 },
                 // 凌滨{ path: "/discover", load: () => import("./views/DiscoverView/DiscoverView"), },
                 {
