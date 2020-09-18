@@ -1,6 +1,6 @@
 .MineAllOrderView{
     width: 750px;
-    height: 100%;
+    height: 1600px;
     background-color: #FAFAFA;
 
     >header{
@@ -18,15 +18,16 @@
             height:52px;
             display: flex;
             flex-direction: row;
-            margin: 0px auto;
+            padding:25px ;
             >.back_MinewView{
                 height:52px;
                 width:50px;
                 flex:0 0 auto;
                 >img {
-                    height:28px;
+                    height: 28px;
                     width:16px;
-                    margin: 10px;
+                    align-items: center;
+                    padding: 10px;
                 }
             }
             >.title
@@ -49,9 +50,9 @@
                 margin: 0px auto;
                 flex: 0 0 auto;
                 >img {
-                    height:28px;
+                    height: 28px;
                     width: 28px;
-                    margin: 10px;
+                    padding: 10px;
                 }
             }
         }
@@ -66,31 +67,36 @@
         background-color: #FAFAFA;
 
         >.order_Nav{
-            height:80px;
+            height:75px;
             width: 750px;
             background-color: #ffffff;
-            >ul {
-                height:80px;
+            
+            > ul{
+                height:75px;
                 width:750px;
                 display: flex;
                 flex-direction:row;
-                >li{
-                    flex: 1;
+                
+                >.active{
+                    flex: 0 0 auto;
+                    width: 150px;
                     text-align: center;
-                    background-color: #ffffff;
-                    >.tab-Name{
-                        height: 80px;
+                    
+                    >.tab-name{
+                        height: 75px;
+                        width: 150px;
                         font-size: 28px;
                         color: #666666FF;
-                        line-height: 80px;
-                    }&.active{
-                       height: 80px;
-                       line-height: 80px;
-                       font-size: 28px;
-                       color: #1B7373FF;
-                       line-height: 60px;
-                       border-bottom: solid 5px  #1B7373FF;
-                   }
+                        line-height: 75px;
+                    }
+                    >.tab-nameActive{
+                        height: 70px;
+                        width: 145px;
+                        font-size: 28px;
+                        color: #666666FF;
+                        line-height: 70px;
+                        border-bottom:solid 5px #1B7373FF;
+                    }
                 }
 
             }
@@ -106,40 +112,38 @@
                 flex-direction: column;
                 margin: 0px auto;
                 margin-top:36px;
-
-                >.business_TargetInform{
-                    height:75px;
+    
+                >.sallerInform{
+                    height:70px;
                     width: 666px;
                     display: flex;
                     flex-direction: row; 
-                    margin:10px ;
+                    line-height: 66px;
+                    margin:10px;
                     flex: 0 0 auto;
-                        >.target_Img{
-                            height:66px;
+                        >.sallerImg{
+                            height:56px;
                             width:66px;
-                            padding: 5px;
-                            margin:5px 5px;
+                            margin:10px 10px;
                             flex:0 0 auto;
                             >img{
                                 height: 56px;
                                 width: 56px;
                             }
                         }
-                        >.target_Name{
-                            height:66px;
-                            width:100px;
+                        >.sallerName{
+                            height:56px;
+                            line-height:56px;
                             flex: 0 0 auto;
-                            padding:5px;
-                            margin: 5px;
-                            line-height: 56px;
+                            margin:10px;
                             color: #333333FF;
                             font-size: 32px;
                             font-weight: bold;
                         }
-                        >.target_Detail{
-                            height:66px;
-                            width:30px;
-                            padding:5px;
+                        >.sallerDetail{
+                            height:56px;
+                            width:21px;
+                            margin: 10px;
                             flex: 0 0 auto;
                             >img {
                                 height: 28px;
@@ -149,19 +153,21 @@
                         }
                         >.business_State{
                             height: 56px;
-                            width:100px;
+                            width:130px;
+                            line-height: 56px;
+                            padding:10px;
                             margin-left:320px;
                             text-align: center;
                             color: #1B7373;
                             font-size:24px;
-                            margin-top:20px ;
+                           
                         }
                 }
-
+    
                 >.goods_Inform{
-                    height:450px;
-                    width:680px;
-                    padding:5px;
+                    height:300px;
+                    width:666px;
+                    padding: 10px;
                     display: flex;
                     flex-direction: row;
                     >.goods_Img{
@@ -176,16 +182,15 @@
                     }
                     >.goods_Detail{
                         width: 420px;
-                        height:300px;
+                        height:220px;
                         padding:10px;
                         flex: 0 0 auto;
                         display: block;
                         >.goods_Name{
-                        font-family: PingFang SC;
                         font-size: 28px;
-                        width:410px;
+                        width:320px;
                         height:83px;
-                        padding: 10px;
+                        margin: 10px;
                         color:#333333;
                         }
                         >.goods_Status{
@@ -193,8 +198,8 @@
                             height:70px;
                             >.goods_Stylechoice{
                                 height: 33px;
-                                width:100px;
-                                padding:5px;
+                                width: 72px;
+                                margin: 5px;
                                 font-size:24px;
                                 color: #999999;
                                 display: inline-block;
@@ -207,39 +212,43 @@
                             }
                         }
                         >.goods_Service{
-                            width:130px;
+                            width: 100px;
                             height:28px;
-                            text-align: center;
-                            line-height: 28px;
                             font-size: 20px;
                             margin-left: 10px;
                             color: #E42121;
-                            font-family: PingFang SC;
                             background-color:#F5F5F5;
-                        }
-                        >.goods_AccountItem{
-                            margin-top:40px;
-                            height: 33px;
-                            width: 420px;
-                            font-size: 24px;
-                            font-family: PingFang SC Regular;
-                            >span{
-                                color: #E42121;
-                                font-family: PingFang SC Regular;
-                                font-size: 24px;
-                            }
                         }
                     }
                 }
+
+                >.goods_AccountItem{
+                    height: 33px;
+                    width:650px;
+                    margin: 10px;
+                    font-size: 24px;
+                    font-family: PingFang SC Regular;
+                    text-align:right;
+                    color:#666666;
+                    margin-right: 20px;
+                    >span{
+                        color: #E42121;
+                        font-family: PingFang SC Regular;
+                        font-size: 24px;
+                    }
+                }
+                
+               
                 >.goods_OperateButton{
                     height: 128px;
                     width: 666px;
                     padding: 10px;
-                
+                   
                     >.del_GoodsItem{
                         width: 164px;
                         display: inline-block;
                         margin-left:260px;
+                        margin-top: 15px;
                         >button{
                             width: 164px;
                             height:56px;
@@ -265,8 +274,8 @@
                         }
                     }
                 }
-        
             }
+        
         }
     }
 }

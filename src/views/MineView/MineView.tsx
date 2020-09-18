@@ -1,5 +1,6 @@
 import React from 'react';
 import './MineView.less';
+import {UserInformData,UserData  } from './TestData/UserInformData';
 import { Global } from '../../models/Global';
 
 export interface MineViewProps {
@@ -7,37 +8,106 @@ export interface MineViewProps {
 }
 
 export interface MineViewState {
-    userData: {
-        nickName:string,
-        user_Avatar:string,
-        user_Medal:string,
-        user_Fans:number,
-        user_Follows:string,
-        user_Likes:string,
-        user_Collection:number,
-    }[];
-
+    data:UserData[],
+    showCoupon:boolean,
 }
 
 export default class MineView extends React.Component<MineViewProps, MineViewState>{
-
-    state: MineViewState = {
-        userData:[
-            {
-            nickName:"别样风格",
-            user_Avatar:require("./assets/avatar.png"),
-            user_Medal:"寻宝人",
-            user_Fans:156,
-            user_Follows:"1.1K",
-            user_Likes:"2.3W",
-            user_Collection:45,
-            }
-        ],
+    state = {
+            data:[],
+            showCoupon:true,
     };
 
-    onCheckAllOrder(){
-
+    onReplaceOrder(){
         Global.history.push("/mineorder");
+    }
+
+    //获取数据
+    componentDidMount() {
+        let getData = UserInformData.getInstance().getUserData();
+        this.state.data=getData;
+        this.forceUpdate();
+    }
+
+    
+     //获取优惠券并判断显示
+    getCouponNum() {
+        let couponNum;
+        couponNum = this.state.data.map((v) => {
+            if (v.userCoupon<1) {
+                this.state.showCoupon===false;
+                return
+            }
+            else{
+                this.state.showCoupon===true;
+                return v.userCoupon;
+            }
+        });
+        return couponNum;
+    }
+
+    //获取粉丝数量
+    getFansNum() {
+        let fansNum;
+        fansNum = this.state.data.map((v) => {
+            if (v.userFans>=1&&v.userFans<1000) {
+                return v.userFans
+            }
+            else if(v.userFans>=1000&&v.userFans<9999){
+                return Math.floor((v.userFans/100)/10)+"K";
+            }
+            else
+              return Math.floor((v.userFans/1000)/10)+"W"
+        });
+        return fansNum;
+    }
+
+    //获取关注数量
+    getFollowNum() {
+        let followNum;
+        followNum = this.state.data.map((v) => {
+            if (v.userFollow>=1&&v.userFollow<1000) {
+                return v.userFollow
+            }
+            else if(v.userFollow>=1000&&v.userFollow<10000){
+                return Math.floor((v.userFollow/100)/10)+"K"
+            }
+            else
+              return Math.floor((v.userFollow/1000)/10)+"W"
+        });
+        return followNum;
+    }
+
+    //获取关注数量
+    getLikesNum() {
+        let likesNum;
+        likesNum = this.state.data.map((v) => {
+            if (v.userLikes>=1&&v.userLikes<1000) {
+                return v.userLikes
+            }
+            else if(v.userLikes>=1000&&v.userLikes<10000){
+                return Math.floor((v.userLikes/10)/10)+"K"
+            }
+            else
+              return Math.floor((v.userLikes/1000)/10)+"W"
+        });
+        return likesNum;
+    }
+
+    //获取收藏数量
+    getCollectNum() {
+        let collectNum;
+        collectNum = this.state.data.map((v) => {
+            if (v.userCollection>=1&&v.userCollection<1000) {
+                return v.userCollection
+            }
+            else if(v.userCollection>=1000&&v.userCollection<10000){
+                return Math.floor(v.userCollection/100)/10+"K"
+            }
+            else
+              return Math.floor((v.userCollection/1000)/10)+"W"
+        });
+        return collectNum;
     }
 
     render() {
@@ -53,47 +123,50 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
                         <div className="user_Vip">
                             <img src={require('./assets/user_Vip.png')}/>
                         </div>
-                        {this.state.userData.map((v)=>(
-                        <div className="user_Part">
-                            <div className="user_Inform">
-                                <div className="user_Avatar">
-                                    <img src={v.user_Avatar}/>
-                                </div>
-                                <div className="nickName">
-                                    <h2>{v.nickName}</h2>
-                                    <div className="user_Medal">
-                                        <img src={require('./assets/otheravatar.png')}/>
-                                        <p>{v.user_Medal}</p>
+                        <div className="user_Part" >
+                        {this.state.data.map((v,i)=>{
+                            return(
+                                <div className="user_Inform"key={i}>
+                                    <div className="user_Avatar">
+                                    <img src={require(`./assets/${v.userAvatar}`)}/>
+                                    </div>
+                                    <div className="user_nickName">
+                                        <h2>
+                                        {v.usernickName}
+                                        </h2>
+                                        <div className="user_Medal">
+                                            {v.userMedal}
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                )
+                                })}
                             <div className="user_funcPart">
                                 <ul>
                                     <li>
-                                        <div className="user_Fans">{v.user_Fans}</div>
+                                        <div className="user_Fans" >{this.getFansNum()}</div>
                                         <p>粉丝</p>
                                     </li>
                                     <li>
-                                        <div className="user_Follow">{v.user_Follows}</div>
+                                        <div className="user_Follow">{this.getFollowNum()}</div>
                                         <p>关注</p>
                                     </li>
                                     <li>
-                                        <div className="user_Likes">{v.user_Likes}</div>
+                                        <div className="user_Likes" >{this.getLikesNum()}</div>
                                         <p>点赞</p>
                                     </li>
                                     <li>
-                                        <div className="user_Collection">{v.user_Collection}</div>
+                                        <div className="user_Collection">{this.getCollectNum()}</div>
                                         <p>收藏</p>
                                     </li>
                                 </ul>
                             </div>
                         </div>
-                        ))}
                         <div className="order_Part">
                             <div className="MyOrder" >
                                 <h2>我的购物车</h2>
                                 <div className="MyAllOrder"  
-                                onClick={() => {this.onCheckAllOrder()}}>
+                                onClick={() => {this.onReplaceOrder()}}>
                                 <p>全部</p>
                                 <img src={require('./assets/enter_button.png')}/>
                                 </div>
@@ -136,8 +209,9 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
                         <div className="orther_Part">
                             <div className="my_Coupon">
                                 <h2>我的优惠券</h2>
-                                <p>5</p>
-                                <img src={require('./assets/sign_Number.png')} className="sign_Number"/>
+                                <div className={this.state.showCoupon==true?"showCoupon":'showCouponhide'} >
+                                    {this.getCouponNum()}
+                                </div>
                                 <img src={require('./assets/enter_button2.png')}/>
                             </div>
                             <div className="box_BorderButtom"></div>

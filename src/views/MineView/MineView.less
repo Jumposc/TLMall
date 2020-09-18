@@ -51,23 +51,23 @@
                     flex-direction: row;
                     
                     >.user_Avatar{
-                        height:160px;
-                        width:160px;
-                        padding:7px 6px;
-                        margin:7px 6px;
+                        height:144px;
+                        width:144px;
+                        margin:7px 12px;
                         flex:0 0 auto;
 
                         >img{
                             height:144px;
                             width: 144px;
+                            margin:7px 6px;
                         }
                     }
 
-                    >.nickName{
+                    >.user_nickName{
                         width: 494px;
-                        height:150px;
-                        padding: 14px 6px;
-                        margin: 10px;
+                        height:136px;
+                        margin-left:15px ;
+                        padding:28px 6px;
 
                         >h2{
                             font-size: 32px;
@@ -79,20 +79,14 @@
                         >.user_Medal{
                             height: 40px;
                             width: 100px;
-
-                            >img{
-                                height: 100%;
-                                width: 100%;
-                            }
-                            >p{
-                                height:28px;
-                                width: 60px;
-                                font-size: 20px;
-                                position: relative;
-                                top:-30px;
-                                left: 20px;
-                                color: #ffffff;
-                            }
+                            background-color: #1B7373FF;
+                            border-radius:20px;
+                            margin:10px 0px;
+                            text-align: center;
+                            line-height: 40px;
+                            font-family: PingFang SC;
+                            font-size:20px;
+                            color:white;
                         }
                     }
                 }
@@ -119,7 +113,7 @@
                              .user_Likes,
                              .user_Collection{
                                  height:40px;
-                                 width: 50px;
+                                 width: 164px;
                                  margin: 0px auto;
                                  font-family:PingFang SC ;
                                  font-size: 28px;
@@ -139,23 +133,23 @@
             >.order_Part{
                 height: 203px;
                 width: 686px;
-                display: block;
+                display: flex;
+                flex-direction: column;
                 margin-top: 36px;
                 background-color: #ffffff;
 
                 >.MyOrder{
                     height:44px;
                     width: 650px;
-                    padding:20px 16px;
+                    margin:20px 16px;
                     display: flex;
                     flex-direction: row;
                     
                     >h2{
                         font-size:28px;
                         color: #333333;
-                        height:44px;
                         font-family: PingFang SC;
-                        line-height: 44px;
+                        line-height: 40px;
                         margin-right:430px;
                         flex:0 0 auto;
                     }
@@ -182,7 +176,6 @@
                 }
 
                 >.order_Function{
-                    margin-top:40px;
                     height: 113px;
                     >ul {
                         display: flex;
@@ -217,38 +210,37 @@
             }
 
             >.orther_Part{
-                height: 472px;
+                height: 462px;
                 width: 686px;
+                padding:10px ;
                 margin-top: 36px;
                 background-color:#ffffff;
                 
                 >.my_Coupon{
                     height: 30px;
                     width: 646px;
-                    padding:28px 20px ;
-                    margin-top:25px;
+                    margin:28px 20px ;
                     display: flex;
                     flex-direction: row;
                     >h2{
                         font-size: 28px;
                         color: #333333;
                         font-family: PingFang SC;
-                        margin-right: 420px;
+                        margin-right: 423px;
                         flex:0 0 auto;
                     }
-                    >p{
-                        font-size: 20px;
-                        font-family: PingFang SC;
-                        color: white;
-                        flex:0 0 auto;
-                        position: relative;
-                        left:23px;
-                        top: 3px;
-                    }
-                    >.sign_Number{
-                        height: 32px;
+                    >.showCoupon
+                    {
+                        background-color: #E42121FF;
+                        border-radius: 50%;
+                        height:32px;
                         width: 32px;
-                        flex:0 0 auto;
+                        text-align: center;
+                        color:white;
+                        line-height:32px;
+                    }
+                    >.shwCouponohide{
+                        opacity:100%;
                     }
                     >img{
                         height: 24.71px;
@@ -274,7 +266,7 @@
                         font-size: 28px;
                         color: #333333;
                         font-family: PingFang SC;
-                        margin-right: 350px;
+                        margin-right: 343px;
                     }
                     >p{
                         flex:0 0 auto;
@@ -302,7 +294,7 @@
                         font-size: 28px;
                         color: #333333;
                         font-family: PingFang SC;
-                        margin-right:485px;
+                        margin-right:483px;
                         flex:0 0 auto;
                     }
                     >img{
@@ -343,7 +335,7 @@
                         font-size: 28px;
                         color: #333333;
                         font-family: PingFang SC;
-                        margin-right:455px;
+                        margin-right:456px;
                         flex:0 0 auto;
                     }
                     >img{
