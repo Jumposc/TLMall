@@ -43,11 +43,7 @@ const App = () => (
                 },
                 {
                     path: "/mineorder",
-<<<<<<< HEAD
-                    load: () =>import("./views/MineOrderView/MineOrderView"),
-=======
-                    load: () => import("./views/MineAllOrderView/MineAllOrderView"),
->>>>>>> d582ba5106acaab408467a823d6f5a9832ed00ab
+                    load: () => import("./views/MineOrderView/MineOrderView"),
                 },
                 { path: "*", load: () => import("./views/HomeView/HomeView") },
             ]}
