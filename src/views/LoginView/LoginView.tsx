@@ -1,7 +1,8 @@
 import React from 'react';
 import './LoginView.less';
-import MobileLogin from './MobileLogin'
-import CipherLogin from './CipherLogin'
+import MobileLogin from './MobileLogin';
+import CipherLogin from './CipherLogin';
+import { Global } from '../../models/Global';
 
 export interface LoginViewProps {
 
@@ -64,5 +65,8 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
     }
     private _onCipherClick() {
         this.setState({ currentTabIndex: 1 })
+    }
+    onLoginClick(){
+
     }
 }

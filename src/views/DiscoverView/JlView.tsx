@@ -1,88 +1,64 @@
 import React from 'react';
 import './DiscoverView.less';
+import { JlList } from './DiscoverDb'
+import { FollowList } from './DiscoverDb'
 
 export interface JlViewProps {
 }
 
 export interface JlViewState {
-    user: {
-        nickName: string,
-        avatar: string,
-        id: string,
-    }[],
-    jlCard: {
-        picture: string,
-        content: string,
-        nickName: string,
-        avatar: string,
-        isFollow: boolean,
-        like: number,
-        isLike: boolean,
-    }[],
-
+    followList: FollowList[],
+    jlList: JlList[],
 
 }
 
 export default class JlView extends React.Component<JlViewProps, JlViewState>{
     state = {
-        user: [
-            { nickName: '大王', avatar: 'dawang.png', id: 'DW' },
-            { nickName: '小王', avatar: 'xiaowang.png', id: 'XW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-        ],
-        jlCard: [
-            {
-                nickName: '大王',
-                avatar: 'dawang.png',
-                id: 'DW',
-                picture: 'picture4.png',
-                content: 'aaaaaaaaaaaaaaaa',
-                isFollow: false,
-                isLike: false,
-                like: 777,
-            },
-            {
-                nickName: '中王',
-                avatar: 'zhongwang.png',
-                id: 'ZW',
-                picture: 'picture5.png',
-                content: 'aaaaaaaaaaaaaaaa',
-                isFollow: false,
-                isLike: false,
-                like: 788,
-            },
-            {
-                nickName: '小王',
-                avatar: 'xiaowang.png',
-                id: 'XW',
-                picture: 'picture6.png',
-                content: 'aaaaaaaaaaaaaaaa',
-                isFollow: false,
-                isLike: false,
-                like: 888,
-            },
-        ],
+            followList: [
+                { nickName: '大王', avatar: 'dawang.png', id: 'DW' },
+                { nickName: '小王', avatar: 'xiaowang.png', id: 'XW' },
+                { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
+            ],
+            jlList: [
+                {
+                    nickName: '大王',
+                    avatar: 'dawang.png',
+                    id: 'DW',
+                    picture: 'picture4.png',
+                    content: 'aaaaaaaaaaaaaaaa',
+                    like: 777,
+                    isFollow: false,
+                    isLike: false,
+                },
+                {
+                    nickName: '中王',
+                    avatar: 'zhongwang.png',
+                    id: 'ZW',
+                    picture: 'picture5.png',
+                    content: 'aaaaaaaaaaaaaaaa',
+                    like: 788,
+                    isFollow: false,
+                    isLike: false,
+                },
+                {
+                    nickName: '小王',
+                    avatar: 'xiaowang.png',
+                    id: 'XW',
+                    picture: 'picture6.png',
+                    content: 'aaaaaaaaaaaaaaaa',
+                    like: 888,
+                    isFollow: false,
+                    isLike: false,
+                },
+            ],
     }
-
     render() {
         return (
             <div className='jlView'>
                 <section>
                     <p>关注的人</p>
                     <ul className="user">
-                        {this.state.user.map((v, i) => {
+                        {this.state.followList.map((v, i) => {
                             return (
                                 <li key={i}>
                                     <img src={require(`./assets/${v.avatar}`)} />
@@ -92,7 +68,7 @@ export default class JlView extends React.Component<JlViewProps, JlViewState>{
                         })}
                     </ul>
                     <ul className="jl-card">
-                        {this.state.jlCard.map((v, i) => {
+                        {this.state.jlList.map((v, i) => {
                             return (
                                 <li key={i}>
                                     <div className="head">
@@ -136,8 +112,6 @@ export default class JlView extends React.Component<JlViewProps, JlViewState>{
     }
 
     onLikeBtn(v) {
-        // v.isLike === false ? v.like +=1 : v.like -=1 ;
-        // v.isLike = !v.isLike;
         if (v.isLike === false) {
             v.like += 1;
             v.isLike = !v.isLike;
@@ -149,7 +123,7 @@ export default class JlView extends React.Component<JlViewProps, JlViewState>{
         this.forceUpdate()
     }
     modifyFollow(id) {
-        this.state.jlCard.filter(v => v.id === id)
+        this.state.jlList.filter(v => v.id === id)
             .forEach(v => { v.isFollow = !v.isFollow });
         this.forceUpdate()
     }

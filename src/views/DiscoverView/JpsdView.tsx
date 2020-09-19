@@ -1,39 +1,41 @@
 import React from 'react';
 import './DiscoverView.less';
+import { JpsdList } from './DiscoverDb'
 
 export interface jpsdViewProps {
 }
 
 export interface jpsdViewState {
-    jpsdCard: {
-        picture: string,
-        content: string,
-        nickName: string,
-        avatar: string,
-        province: string,
-    }[],
+    jpsdList: JpsdList[]
 }
 
 export default class jpsdView extends React.Component<jpsdViewProps, jpsdViewState>{
     state = {
-        jpsdCard: [
-            { picture: 'picture1.png', content: 'aaaaaaaaaaaaaaaa', nickName: '大王', avatar: 'dawang.png', province: '广东' },
-            { picture: 'picture2.png', content: 'bbbbbbbbbbbbbbbb', nickName: '小王', avatar: 'xiaowang.png', province: '北京' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
-            { picture: 'picture3.png', content: 'cccccccccccccccc', nickName: '中王', avatar: 'zhongwang.png', province: '上海' },
+        jpsdList: [
+            {
+                picture: 'picture1.png',
+                content: 'aaaaaaaaaaaaaaaa',
+                nickName: '大王',
+                avatar: 'dawang.png',
+                province: '广东',
+                userId: 'DW',
+            },
+            {
+                picture: 'picture2.png',
+                content: 'bbbbbbbbbbbbbbbb',
+                nickName: '小王',
+                avatar: 'xiaowang.png',
+                province: '北京',
+                userId: 'XW',
+            },
+            {
+                picture: 'picture3.png',
+                content: 'cccccccccccccccc',
+                nickName: '中王',
+                avatar: 'zhongwang.png',
+                province: '上海',
+                userId: 'ZW',
+            },
         ]
     }
 
@@ -41,7 +43,7 @@ export default class jpsdView extends React.Component<jpsdViewProps, jpsdViewSta
         return (
             <div className='jpsdView'>
                 <section>
-                    {this.state.jpsdCard.map((v, i) => {
+                    {this.state.jpsdList.map((v, i) => {
                         return (
                             <div className="jpsd-card" key={i}>
                                 <img src={require(`./assets/${v.picture}`)} />

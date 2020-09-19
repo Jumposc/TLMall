@@ -24,7 +24,14 @@ const App = () => (
                     path: "/productDetail",
                     load: () => import("./views/ProductDetailView/ProductDetailView"),
                 },
-                // 凌滨{ path: "/discover", load: () => import("./views/DiscoverView/DiscoverView"), },
+                {
+                    path: '/Discover',
+                    load: () => import('./views/DiscoverView/DiscoverView')
+                },
+                {
+                    path: '/Login',
+                    load: () => import('./views/LoginView/LoginView')
+                },
                 {
                     path: "/cart",
                     load: () => import("./views/CartView/CartView"),

@@ -1,43 +1,24 @@
 import React from 'react';
 import './DiscoverView.less';
+import { SpList } from './DiscoverDb'
+import { FollowList } from './DiscoverDb'
 
 export interface SpViewProps {
 }
 
 export interface SpViewState {
-    user: {
-        nickName: string,
-        avatar: string,
-        id: string,
-    }[]
-    spCard: {
-        picture: string,
-        content: string,
-        nickName: string,
-        avatar: string,
-        isFollow: boolean,
-        like: number,
-        isLike: boolean,
-    }[],
+    followList: FollowList[],
+    spList: SpList[],
 }
 
 export default class SpView extends React.Component<SpViewProps, SpViewState>{
     state = {
-        user: [
+        followList: [
             { nickName: '大王', avatar: 'dawang.png', id: 'DW' },
             { nickName: '小王', avatar: 'xiaowang.png', id: 'XW' },
             { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
         ],
-        spCard: [
+        spList: [
             {
                 nickName: '大王',
                 avatar: 'dawang.png',
@@ -66,7 +47,7 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
                 <section>
                     <p>关注的人</p>
                     <ul className="user">
-                        {this.state.user.map((v, i) => {
+                        {this.state.followList.map((v, i) => {
                             return (
                                 <li key={i}>
                                     <img src={require(`./assets/${v.avatar}`)} />
@@ -76,7 +57,7 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
                         })}
                     </ul>
                     <ul className="jl-card">
-                        {this.state.spCard.map((v, i) => {
+                        {this.state.spList.map((v, i) => {
                             return (
                                 <li key={i}>
                                     <div className="head">
@@ -119,8 +100,6 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
         )
     }
     onLikeBtn(v) {
-        // v.isLike === false ? v.like +=1 : v.like -=1 ;
-        // v.isLike = !v.isLike;
         if (v.isLike === false) {
             v.like += 1;
             v.isLike = !v.isLike;
@@ -132,7 +111,7 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
         this.forceUpdate()
     }
     modifyFollow(id) {
-        this.state.spCard.filter(v => v.id === id)
+        this.state.spList.filter(v => v.id === id)
             .forEach(v => { v.isFollow = !v.isFollow });
         this.forceUpdate()
     }
