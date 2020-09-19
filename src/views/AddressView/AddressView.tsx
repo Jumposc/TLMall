@@ -2,21 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./AddressView.less";
 import { Global } from "../../models/Global";
-import { CartDB } from '../CartView/CartDB';
+import { CartDB, AddressListItem } from '../CartView/CartDB';
 
 export interface AddressViewProps { }
 
 export interface AddressViewState {
     addressList: AddressListItem[];
-}
-
-export interface AddressListItem {
-    id: string;
-    name: string;
-    tel: string;
-    remarks: string;
-    address: string;
-    isDefault: boolean;
 }
 
 export default class AddressView extends React.Component<

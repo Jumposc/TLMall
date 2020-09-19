@@ -2,26 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./CartView.less";
 import { Global } from "../../models/Global";
-import { CartDB } from './CartDB';
-
-export interface Product {
-    id: string;
-    img: string;
-    name: string;
-    property: string;
-    price: number;
-    amount: number;
-    maxAmount: number;
-    freight: number,
-    isSelected: boolean;
-}
-export interface MayLikeListItem {
-    id: string;
-    img: string;
-    name: string;
-    place: string;
-    price: number;
-}
+import { CartDB, Product, MayLikeListItem } from './CartDB';
 
 export interface CartViewProps { }
 

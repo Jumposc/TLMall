@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./SettlementView.less";
 import { Global } from "../../models/Global";
-import { CartDB } from '../CartView/CartDB';
-import { AddressListItem } from '../AddressView/AddressView'
-import { Product } from '../CartView/CartView'
+import { CartDB, AddressListItem, Product, VoucherListItem, CouponListItem } from '../CartView/CartDB';
 
 export interface SettlementViewProps { }
 
@@ -13,17 +11,6 @@ export interface SettlementViewState {
     orderList: Product[];
     voucherList: VoucherListItem[];
     couponList: CouponListItem[];
-}
-
-export interface VoucherListItem {
-    limit: number;
-    price: number;
-    isSelected: boolean;
-}
-
-export interface CouponListItem {
-    price: number;
-    isSelected: boolean;
 }
 
 export default class SettlementView extends React.Component<

@@ -21,9 +21,8 @@ const App = () => (
                     load: () => import("./views/CategoryView/CategoryView"),
                 },
                 {
-                    path: "/product/detail",
-                    load: () =>
-                        import("./views/ProductDetailView/ProductDetailView"),
+                    path: "/productDetail",
+                    load: () => import("./views/ProductDetailView/ProductDetailView"),
                 },
                 // 凌滨{ path: "/discover", load: () => import("./views/DiscoverView/DiscoverView"), },
                 {
@@ -44,9 +43,13 @@ const App = () => (
                 },
                 {
                     path: "/mineorder",
+<<<<<<< HEAD
                     load: () =>import("./views/MineOrderView/MineOrderView"),
+=======
+                    load: () => import("./views/MineAllOrderView/MineAllOrderView"),
+>>>>>>> d582ba5106acaab408467a823d6f5a9832ed00ab
                 },
-                { path: "*", load: () => import("./views/MineView/MineView") },
+                { path: "*", load: () => import("./views/HomeView/HomeView") },
             ]}
         />
         <Tab />

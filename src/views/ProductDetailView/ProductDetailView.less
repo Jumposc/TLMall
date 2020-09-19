@@ -6,6 +6,7 @@
     background-color: #fafafa;
     color: #333333;
     padding-bottom: 59px;
+    overflow: hidden;
     >header {
         width: 750px;
         position: absolute;
@@ -17,14 +18,29 @@
         z-index: 1;
         >.back {
             flex: 0 0 auto;
+            cursor: pointer;
         }
-        >.to-card {
+        >.to-cart {
             flex: 0 0 auto;
+            cursor: pointer;
         }
     }
     >section {
-        >.big-photo {
+        >.carousel {
             position: relative;
+            overflow: hidden;
+            >.container {
+                display: flex;
+                height: 750px;
+                margin-left: 0;
+                >img {
+                    flex: 0 0 auto;
+                    width: 750px;
+                    height: 750px;
+                    object-fit: fill;
+                    user-select: none;
+                }
+            }
             >.pager {
                 width: 64px;
                 height: 42px;
@@ -84,6 +100,7 @@
                 display: flex;
                 align-items: center;
                 background: url("./accets/product_details_icon_share_background.png");
+                cursor: pointer;
                 >img {
                     margin-left: 19px;
                 }
@@ -145,6 +162,7 @@
                 height: 40px;
                 justify-content: space-between;
                 margin-top: 28px;
+                cursor: pointer;
                 >.title {
                     flex: 0 0 auto;
                     font-weight: bold;
@@ -155,6 +173,7 @@
                     flex: 0 0 auto;
                     line-height: 40px;
                     background: none;
+                    cursor: pointer;
                     >* {
                         display: inline-block;
                         vertical-align: middle;
@@ -197,7 +216,6 @@
                         box-sizing: border-box;
                         height: 40px;
                         font-size: 20px;
-                        line-height: 40px;
                         flex: 0 0 auto;
                         padding: 6px 16px;
                         background-color: #FAFAFA;
@@ -212,6 +230,7 @@
                     margin-top: 20px;
                     >img {
                         flex: 0 0 auto;
+                        cursor: pointer;
                     }
                 }
             }
@@ -234,8 +253,9 @@
             margin-top: 4px;
             >* {
                 text-align: center;
-                color:#999;
-                >.name{
+                color: #999;
+                cursor: pointer;
+                >.name {
                     font-size: 24px;
                     line-height: 18px;
                     margin-top: 4px;
@@ -246,21 +266,23 @@
             }
         }
         >.right {
-            >*{
+            >* {
                 width: 212px;
                 height: 104px;
                 font-size: 32px;
                 font-weight: bold;
                 line-height: 36px;
                 color: #fff;
+                cursor: pointer;
             }
-            >.add-cart{
+            >.add-cart {
                 background: url("./accets/product_details_button_add_to_cart_background.png");
-                
             }
-            >.buy{
+            >.buy {
                 background: url("./accets//product_details_button_buy_background.png");
             }
         }
     }
+
+    
 }
