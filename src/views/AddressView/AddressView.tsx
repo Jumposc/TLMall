@@ -29,13 +29,17 @@ export default class AddressView extends React.Component<
     };
 
     componentDidMount() {
+        Global.loading.show()
         let data = CartDB.getCartDB().getAdderssData()
+        Global.loading.hide()
         this.state.addressList = data.addressList.slice()
         this.forceUpdate()
     }
 
     onSelectDefaultAddress(v: AddressListItem) {
+        Global.loading.show()
         let res = CartDB.getCartDB().selectDefaultAddress(v)
+        Global.loading.hide()
         if (res.status !== 200) {
             alert('修改失败')
             return
@@ -50,7 +54,9 @@ export default class AddressView extends React.Component<
             alert('不能删除默认地址选项')
             return
         }
+        Global.loading.show()
         let res = CartDB.getCartDB().delAddressById(id)
+        Global.loading.hide()
         if (res.status !== 200) {
             alert('删除失败')
             return

@@ -1,3 +1,5 @@
+import { CartItem } from './CartUtil';
+
 export interface OrderItem {
     id: string,
     uid: string,
@@ -25,7 +27,9 @@ export interface OrderItem {
 export class OrderUtil {
 
     /** 下单 */
-    static add() { }
+    static async add(userId: string, productList: CartItem[]): Promise<{ orderId: string }> {
+        return ({ orderId: '' })
+    }
 
     /** 取消订单（未发货的） */
     static cancel() { }
@@ -43,5 +47,5 @@ export class OrderUtil {
     static getOrderList(orderStatus: OrderItem['status'] | '全部', size: number, lastItemId?: number): Promise<OrderItem[]> {
         throw new Error('TODO');
     }
-    
+
 }

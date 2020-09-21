@@ -4,10 +4,27 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     z-index: 20;
-
+    font-size: 32px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: show 1s;
+}
+
+@keyframes show{
+    0%{
+        display: block;
+        opacity: 0;
+    }
+    50%{
+        display: block;
+        opacity: 0;
+    }
+    100%{
+        display: block;
+        opacity: 1;
+    }
 }

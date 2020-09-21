@@ -1,9 +1,9 @@
 import { createBrowserHistory, createHashHistory } from "history";
-import { Tab } from "../components/Tab/Tab";
+import Loading from '../components/Loading/Loading';
 
 export class Global {
+    static loading: Loading
     // 全局 History
-    static isTabShow = true;
     static history = createHashHistory();
     static get query(): { [key: string]: string | undefined } {
         let search = new URLSearchParams(this.history.location.search);
@@ -15,11 +15,5 @@ export class Global {
     }
     static get href(): string {
         return this.history.createHref(this.history.location);
-    }
-    static showTab() {
-        Global.isTabShow = true;
-    }
-    static hideTab() {
-        Global.isTabShow = false;
     }
 }
