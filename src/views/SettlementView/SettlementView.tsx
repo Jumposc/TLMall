@@ -65,9 +65,9 @@ export default class SettlementView extends React.Component<
     };
 
     componentDidMount() {
-        Global.loading.showLoading()
+        Global.loading.show()
         let data = CartDB.getCartDB().getOrderData()
-        Global.loading.hideLoading()
+        Global.loading.hide()
         this.state.orderList = data.orderList.slice()
         this.state.voucherList = data.voucherList.slice()
         this.state.couponList = data.couponList.slice()
@@ -79,10 +79,10 @@ export default class SettlementView extends React.Component<
         if (v.amount <= 1) {
             return;
         }
-        Global.loading.showLoading()
+        Global.loading.show()
         v.amount--;
         let res = CartDB.getCartDB().updataCartProduct(v)
-        Global.loading.hideLoading()
+        Global.loading.hide()
         if (res.status !== 200) {
             alert('商品信息错误')
             v.amount++;
@@ -95,10 +95,10 @@ export default class SettlementView extends React.Component<
         if (v.amount >= v.maxAmount) {
             return;
         }
-        Global.loading.showLoading()
+        Global.loading.show()
         v.amount++;
         let res = CartDB.getCartDB().updataCartProduct(v)
-        Global.loading.hideLoading()
+        Global.loading.hide()
         if (res.status !== 200) {
             alert('商品信息错误')
             v.amount--;

@@ -17,12 +17,12 @@ export default class Loading extends React.Component<LoadingProps, LoadingState>
         Global.loading = this;
     }
 
-    showLoading() {
+    show() {
         this.showNum++;
         this.forceUpdate();
     }
 
-    hideLoading() {
+    hide() {
         this.showNum--;
         this.forceUpdate();
     }
