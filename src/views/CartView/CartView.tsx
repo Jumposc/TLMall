@@ -52,6 +52,7 @@ export default class CartView extends React.Component<
     };
 
     componentDidMount() {
+        Global.loading.showLoading()
         let CartData = CartDB.getCartDB().getCartData()
         this.state.cartList = CartData.cartList.slice()
         this.state.mayLikeList = CartData.mayLikeList.slice()
@@ -60,6 +61,7 @@ export default class CartView extends React.Component<
         )
             ? false
             : true;
+        Global.loading.hideLoading()
         this.forceUpdate()
     }
 
@@ -67,8 +69,10 @@ export default class CartView extends React.Component<
         if (v.amount <= 1) {
             return;
         }
+        Global.loading.showLoading()
         v.amount--;
         let res = CartDB.getCartDB().updataCartProduct(v)
+        Global.loading.hideLoading()
         if (res.status !== 200) {
             alert('商品信息错误')
             v.amount++;
@@ -81,8 +85,10 @@ export default class CartView extends React.Component<
         if (v.amount >= v.maxAmount) {
             return;
         }
+        Global.loading.showLoading()
         v.amount++;
         let res = CartDB.getCartDB().updataCartProduct(v)
+        Global.loading.hideLoading()
         if (res.status !== 200) {
             alert('商品信息错误')
             v.amount--;
@@ -92,8 +98,10 @@ export default class CartView extends React.Component<
     }
 
     onClickSelectBtn(v: Product) {
+        Global.loading.showLoading()
         v.isSelected = !v.isSelected;
         let res = CartDB.getCartDB().updataCartProduct(v)
+        Global.loading.hideLoading()
         if (res.status !== 200) {
             alert('商品信息错误')
             v.isSelected = !v.isSelected;
@@ -108,8 +116,10 @@ export default class CartView extends React.Component<
     }
 
     onClickSelectedAllBtn() {
+        Global.loading.showLoading()
         this.state.isAllSelected = !this.state.isAllSelected;
         let res = CartDB.getCartDB().updataAllCartProductSelected(this.state.isAllSelected)
+        Global.loading.hideLoading()
         if (res.status !== 200) {
             alert('修改失败')
             this.state.isAllSelected = !this.state.isAllSelected;

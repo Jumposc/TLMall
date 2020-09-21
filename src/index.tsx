@@ -7,6 +7,7 @@ import { Global } from "./models/Global";
 import "./assets/app.less";
 import { LazyRouteLoader } from "./components/LazyRouteLoader";
 import { Tab } from "./components/Tab/Tab";
+import Loading from './components/Loading/Loading';
 
 const App = () => (
     <Router history={Global.history}>
@@ -56,6 +57,7 @@ const App = () => (
             ]}
         />
         <Tab />
+        <Loading />
     </Router>
 );
 

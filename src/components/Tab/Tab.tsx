@@ -64,18 +64,16 @@ export class Tab extends React.Component<TabProps, TabState> {
         this.state.selectedIndex = this.state.icontList.findIndex(
             (v) => v.path === path
         );
-        Global.isTabShow = this.state.selectedIndex === -1 ? false : true
         document.getElementById("main")!.style.marginBottom =
-            Global.isTabShow === true ? "166px" : "0px";
+            this.state.selectedIndex === -1 ? "0px" : "166px";
         this.forceUpdate();
     }
 
     render() {
         return (
-            <div
-                className="Tab"
+            <div className="Tab"
                 style={{
-                    display: Global.isTabShow === false ? "none" : "",
+                    display: this.state.selectedIndex === -1 ? "none" : "",
                 }}
             >
                 {this.state.icontList.map((v, i) => (
