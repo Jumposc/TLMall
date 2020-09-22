@@ -1,9 +1,9 @@
 import React from 'react';
-import { SmallCategoryDataListItemData } from './CategoryView';
+import { Category } from '../../models/ProductUtil';
 
 
 export interface SamllCategoryListViewProps {
-    data:SmallCategoryDataListItemData
+    data:Category["smallCategoryList"][any]["products"][any]
 }
 export interface SmallCategoryListViewState {
 
@@ -13,8 +13,8 @@ export class SmallCategoryListItemView extends React.Component<SamllCategoryList
     render() {
         return (
             <li>
-                <img src={require(`./assets/${this.props.data.imgUrl}`)} alt="" />
-                <div className="product-name">{this.props.data.productName}</div>
+                <img src={require(`./assets/${this.props.data.imageUrl}`)} alt="" />
+                <div className="product-name">{this.props.data.name}</div>
             </li>
         )
     }
