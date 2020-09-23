@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductAttributeData } from '../db/ProductDetailDB';
+import { ProductAttributeData } from '../../../models/ProductUtil';
 import './ProductAttributeView.less'
 
 export interface ProductAttributeViewProps {
@@ -17,7 +17,7 @@ export interface ProductAttributeViewState {
 export class ProductAttributeView extends React.Component<ProductAttributeViewProps, ProductAttributeViewState> {
 
     state = {
-        currentAttributeItem: new Array(this.props.attributeData.attributeList.length).fill(0),
+        currentAttributeItem: new Array(this.props.attributeData.list.length).fill(0),
         buyNumber: 1
     }
 
@@ -28,14 +28,14 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
                     <div className="top">
                         <img src={require("../accets/product_attribute_photo.png")} alt="" className="product-img" />
                         <div className="info">
-                            <div className="product-name">{this.props.attributeData.productName}</div>
+                            <div className="product-name">{this.props.attributeData.name}</div>
                             <div className="amount">￥{this.props.attributeData.amount}</div>
                         </div>
                         <img src={require("../accets/product_attribute_button_cancel.png")} alt="" className="close" onClick={() => { this.props.onClickClose() }} />
                     </div>
                     <div className="attribute-list">
                         <ul>
-                            {this.props.attributeData.attributeList.map((v, index) => {
+                            {this.props.attributeData.list.map((v, index) => {
                                 return (
                                     <li key={index}>
                                         <div className="attribute-name">{v.name}</div>
