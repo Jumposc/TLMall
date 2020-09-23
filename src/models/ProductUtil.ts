@@ -37,16 +37,6 @@ export interface ProductAttributeData {
     }[]
 }
 
-/** 购物车商品信息 */
-export interface CartProductInfo {
-    id: string,
-    name: string,
-    imageUrl: string,
-    price: number,
-    freight: number,
-    maxAmount: number,
-
-}
 
 /** 评论列表 */
 export interface ProductCommentItem {
@@ -105,22 +95,11 @@ export class ProductUtil {
     }
 
     /** 获取购物车商品信息 */
-    static async getCartProductInfos(productIds: string[]): Promise<(CartProductInfo | undefined)[]> {
+    static async getProducts(productIds: string[]): Promise<(ProductData | undefined)[]> {
         let res = productIds.map(id => {
             return products.find(v => v.id === id)
         })
-        return res.map(v => {
-            if (v) {
-                return {
-                    id: v.id,
-                    name: v.name,
-                    price: v.detail.price,
-                    imageUrl: v.imageUrl,
-                    freight: v.detail.freight,
-                    maxAmount: v.detail.maxAmount
-                }
-            }
-        })
+        return res
 
     }
 
@@ -162,7 +141,7 @@ export class ProductUtil {
     }
 
     /** 添加到收藏 */
-    static collect(productId: string): Promise<void> {
+    static setProductCollect(productId: string): Promise<void> {
         collectList.push({ productId: productId, userId: '1' })
         throw new Error('TODO');
     }
