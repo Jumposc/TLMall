@@ -2,6 +2,7 @@ import React from 'react';
 import './MineView.less';
 import {UserInformData,UserData  } from './TestData/UserInformData';
 import { Global } from '../../models/Global';
+import {getNum} from '../../models/NumUtil'
 
 export interface MineViewProps {
    
@@ -50,14 +51,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getFansNum() {
         let fansNum;
         fansNum = this.state.data.map((v) => {
-            if (v.userFans>=1&&v.userFans<1000) {
-                return v.userFans
-            }
-            else if(v.userFans>=1000&&v.userFans<9999){
-                return Math.floor((v.userFans/100)/10)+"K";
-            }
-            else
-              return Math.floor((v.userFans/1000)/10)+"W"
+            getNum(v);
         });
         return fansNum;
     }
@@ -66,14 +60,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getFollowNum() {
         let followNum;
         followNum = this.state.data.map((v) => {
-            if (v.userFollow>=1&&v.userFollow<1000) {
-                return v.userFollow
-            }
-            else if(v.userFollow>=1000&&v.userFollow<10000){
-                return Math.floor((v.userFollow/100)/10)+"K"
-            }
-            else
-              return Math.floor((v.userFollow/1000)/10)+"W"
+            getNum(v);
         });
         return followNum;
     }
@@ -82,14 +69,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getLikesNum() {
         let likesNum;
         likesNum = this.state.data.map((v) => {
-            if (v.userLikes>=1&&v.userLikes<1000) {
-                return v.userLikes
-            }
-            else if(v.userLikes>=1000&&v.userLikes<10000){
-                return Math.floor((v.userLikes/10)/10)+"K"
-            }
-            else
-              return Math.floor((v.userLikes/1000)/10)+"W"
+            getNum(v);
         });
         return likesNum;
     }
@@ -98,14 +78,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getCollectNum() {
         let collectNum;
         collectNum = this.state.data.map((v) => {
-            if (v.userCollection>=1&&v.userCollection<1000) {
-                return v.userCollection
-            }
-            else if(v.userCollection>=1000&&v.userCollection<10000){
-                return Math.floor(v.userCollection/100)/10+"K"
-            }
-            else
-              return Math.floor((v.userCollection/1000)/10)+"W"
+            getNum(v);
         });
         return collectNum;
     }
