@@ -29,7 +29,7 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
                         <img src={require("../accets/product_attribute_photo.png")} alt="" className="product-img" />
                         <div className="info">
                             <div className="product-name">{this.props.attributeData.name}</div>
-                            <div className="amount">￥{this.props.attributeData.amount}</div>
+                            <div className="amount">￥{this.props.attributeData.price}</div>
                         </div>
                         <img src={require("../accets/product_attribute_button_cancel.png")} alt="" className="close" onClick={() => { this.props.onClickClose() }} />
                     </div>
