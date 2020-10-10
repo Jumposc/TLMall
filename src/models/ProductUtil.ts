@@ -18,7 +18,7 @@ export interface ProductDetail {
     productTitle: string;
     subTitle: string;
     price: number;
-    sourcePrice: number;
+    originalPrice: number;
     seller: string;
     tags: string[];
     deliveryPlace: string;
@@ -211,7 +211,7 @@ let products: ProductData[] = [
             productTitle: "承唐宋之风原创三合一熏香炉",
             subTitle: "大师之作 经典传承",
             price: 1000,
-            sourcePrice: 2500,
+            originalPrice: 2500,
             seller: "小王",
             tags: ["限时特惠"],
             deliveryPlace: "广东佛山",
@@ -248,7 +248,7 @@ let products: ProductData[] = [
             productTitle: "承唐宋之风原创三合一熏香炉",
             subTitle: "大师之作 经典传承",
             price: 9000,
-            sourcePrice: 2500,
+            originalPrice: 2500,
             seller: "小王",
             tags: ["限时特惠"],
             deliveryPlace: "广东佛山",

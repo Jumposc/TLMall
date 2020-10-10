@@ -28,7 +28,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
                 productTitle: '',
                 subTitle: '',
                 price: 0,
-                sourcePrice: 0,
+                originalPrice: 0,
                 seller: '',
                 tags: [''],
                 deliveryPlace: '',
@@ -115,7 +115,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
                         })}
                         <div className="price">
                             ￥{this.state.product.detail.price}
-                            <span className="source-price">￥{this.state.product.detail.sourcePrice}</span>
+                            <span className="source-price">￥{this.state.product.detail.originalPrice}</span>
                         </div>
                         <button className="share">
                             <img src={require("./accets/product_details_icon_share.png")} alt="" />
