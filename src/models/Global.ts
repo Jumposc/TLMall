@@ -2,6 +2,9 @@ import { createBrowserHistory, createHashHistory } from "history";
 import Loading from '../components/Loading/Loading';
 
 export class Global {
+    static url:string = 'http://localhost:8080';
+    static token:string = ''
+
     static loading: Loading
     // 全局 History
     static history = createHashHistory();
