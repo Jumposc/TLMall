@@ -1,7 +1,7 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 import { ProductData } from './Product';
 
-export interface ReqGetProductList extends BaseReq{
+export interface ReqGetProductList{
     page:number,
     pageSize:number,
     lastId?:string

@@ -1,7 +1,7 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 import { DiscoverContentItem } from './Discover';
 
-export interface ReqGetDiscoverContentList extends BaseReq{
+export interface ReqGetDiscoverContentList{
     category:"交流" | "精品晒单"
 }
 

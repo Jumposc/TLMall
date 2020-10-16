@@ -1,6 +1,6 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 
-export interface ReqRegister extends BaseReq{
+export interface ReqRegister{
     username:string,
     password:string,
 }

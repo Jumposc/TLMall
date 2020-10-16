@@ -1,6 +1,6 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 
-export interface ReqCancelOrder extends BaseReq {
+export interface ReqCancelOrder {
     orderId: string,
 }
 

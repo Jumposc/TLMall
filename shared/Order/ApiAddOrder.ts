@@ -1,7 +1,7 @@
 import { OrderItem } from '../../src/models/OrderUtil';
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 
-export interface ReqAddOrder extends BaseReq {
+export interface ReqAddOrder{
     products: {
         id: string,
         spec:string,

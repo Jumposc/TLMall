@@ -1,7 +1,7 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 import { ProductAttributeData, ProductDetail } from './Product';
 
-export interface ReqAddProduct extends BaseReq{
+export interface ReqAddProduct{
     name: string,
     imageUrl: string,
     detail: ProductDetail,
