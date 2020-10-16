@@ -1,5 +1,5 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
-import { ProductData } from '../product/Product';
+import { ProductData } from '../Product/Product';
 
 export interface ReqGetCartList {
 }
