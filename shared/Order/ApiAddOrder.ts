@@ -1,5 +1,5 @@
-import { OrderItem } from '../../src/models/OrderUtil';
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
+import { OrderItem } from './Order';
 
 export interface ReqAddOrder{
     products: {
