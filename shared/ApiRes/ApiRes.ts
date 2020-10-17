@@ -1,0 +1,1 @@
+type ApiRes<T> = (T & { isSucc: true }) | { errMsg: string } & { isSucc: false } 
