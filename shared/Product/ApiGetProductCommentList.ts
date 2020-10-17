@@ -1,7 +1,7 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
-import { ProductData } from './Product';
+import { ProductCommentItem, ProductData } from './Product';
 
-export interface ReqGetProductCommentList{
+export interface ReqGetProductCommentList extends BaseReq{
     productId:string
     page:number,
     pageSize:number,
@@ -9,5 +9,5 @@ export interface ReqGetProductCommentList{
 }
 
 export interface ResGetProductCommentList extends BaseRes{
-    list:ProductData[]
+    list:ProductCommentItem[]
 }

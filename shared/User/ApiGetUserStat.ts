@@ -1,7 +1,7 @@
-import { UserStat } from '../../src/models/UserUtil';
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
+import { UserStat } from './User';
 
-export interface ReqGetUserStat{
+export interface ReqGetUserStat extends BaseReq{
 
 }
 

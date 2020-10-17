@@ -1,6 +1,6 @@
 import { BaseReq, BaseRes } from '../Base/BaseInterface';
 
-export interface ReqGetCategorieList{
+export interface ReqGetCategorieList extends BaseReq{
 
 }
 
