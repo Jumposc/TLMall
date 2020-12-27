@@ -13,11 +13,11 @@ export interface JlViewState {
 }
 
 export default class JlView extends React.Component<JlViewProps, JlViewState>{
-    state = {
+    state:JlViewState = {
             followList: [
-                { nickName: '大王', avatar: 'dawang.png', id: 'DW' },
-                { nickName: '小王', avatar: 'xiaowang.png', id: 'XW' },
-                { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
+                { nickName: '大王', avatar: 'dawang.png', userId: 'DW' },
+                { nickName: '小王', avatar: 'xiaowang.png', userId: 'XW' },
+                { nickName: '中王', avatar: 'zhongwang.png', userId: 'ZW' },
             ],
             jlList: [
                 {
@@ -111,7 +111,7 @@ export default class JlView extends React.Component<JlViewProps, JlViewState>{
         )
     }
 
-    onLikeBtn(v) {
+    onLikeBtn(v: JlList) {
         if (v.isLike === false) {
             v.like += 1;
             v.isLike = !v.isLike;
@@ -122,7 +122,7 @@ export default class JlView extends React.Component<JlViewProps, JlViewState>{
         };
         this.forceUpdate()
     }
-    modifyFollow(id) {
+    modifyFollow(id: string) {
         this.state.jlList.filter(v => v.id === id)
             .forEach(v => { v.isFollow = !v.isFollow });
         this.forceUpdate()

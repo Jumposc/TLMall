@@ -12,11 +12,11 @@ export interface SpViewState {
 }
 
 export default class SpView extends React.Component<SpViewProps, SpViewState>{
-    state = {
+    state:SpViewState = {
         followList: [
-            { nickName: '大王', avatar: 'dawang.png', id: 'DW' },
-            { nickName: '小王', avatar: 'xiaowang.png', id: 'XW' },
-            { nickName: '中王', avatar: 'zhongwang.png', id: 'ZW' },
+            { nickName: '大王', avatar: 'dawang.png', userId: 'DW' },
+            { nickName: '小王', avatar: 'xiaowang.png', userId: 'XW' },
+            { nickName: '中王', avatar: 'zhongwang.png', userId: 'ZW' },
         ],
         spList: [
             {
@@ -99,7 +99,7 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
             </div>
         )
     }
-    onLikeBtn(v) {
+    onLikeBtn(v: SpList) {
         if (v.isLike === false) {
             v.like += 1;
             v.isLike = !v.isLike;
@@ -110,7 +110,7 @@ export default class SpView extends React.Component<SpViewProps, SpViewState>{
         };
         this.forceUpdate()
     }
-    modifyFollow(id) {
+    modifyFollow(id: string) {
         this.state.spList.filter(v => v.id === id)
             .forEach(v => { v.isFollow = !v.isFollow });
         this.forceUpdate()

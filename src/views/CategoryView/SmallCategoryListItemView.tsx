@@ -1,9 +1,9 @@
 import React from 'react';
-import { Category } from '../../models/ProductUtil';
+import { ProductCategory } from '../../../shared/Product/Product';
 
 
 export interface SamllCategoryListViewProps {
-    data:Category["smallCategoryList"][any]["products"][any]
+    data:ProductCategory["smallCategoryList"][any]["products"][any]
 }
 export interface SmallCategoryListViewState {
 

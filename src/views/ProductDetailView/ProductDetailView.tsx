@@ -1,5 +1,7 @@
 import React from 'react';
-import { ProductAttributeData, ProductCommentItem, ProductData, ProductUtil } from '../../models/ProductUtil';
+import { ProductData, ProductCommentItem } from '../../../shared/Product/Product';
+import { Global } from '../../models/Global';
+import { ProductUtil } from '../../models/ProductUtil';
 import { ProductAttributeView } from './ProductAttributeView/ProductAttributeView'
 import './ProductDetailView.less'
 
@@ -34,7 +36,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
                 deliveryPlace: '',
                 freight: 0,
                 noReasonDay: 0,
-                maxAmount:0
+                maxAmount: 0
             },
             attribute:
             {
@@ -51,7 +53,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
         },
         comments: [
             {
-                productId:'',
+                productId: '',
                 avatarUrl: 'product_details_small_photo.png',
                 nickName: '',
                 starNumber: 0,
@@ -71,10 +73,10 @@ export default class ProductDetailView extends React.Component<ProductDetailView
 
     async componentWillMount() {
         let product = await ProductUtil.getProduct('1');
-        let comments = await ProductUtil.getProductComment('1',10);
+        let comments = await ProductUtil.getProductComment('1', 10);
         this.setState({
             product: product,
-            comments:comments
+            comments: comments
         })
     }
 
@@ -82,10 +84,10 @@ export default class ProductDetailView extends React.Component<ProductDetailView
         return (
             <div className="ProductDetailView">
                 <header>
-                    <div className="back">
+                    <div onClick={() => this.onClickBackBtn()} className="back">
                         <img src={require("./accets/product_details_button_back.png")} alt="" />
                     </div>
-                    <div className="to-cart">
+                    <div onClick={() => this.onClickToCartBtn()} className="to-cart">
                         <img src={require("./accets/product_details_button_cart.png")} alt="" />
                     </div>
                 </header>
@@ -186,6 +188,13 @@ export default class ProductDetailView extends React.Component<ProductDetailView
                 {this.state.isOpenPopup && <ProductAttributeView attributeData={this.state.product.attribute} onCLickDefine={this.onCLickDefine.bind(this)} onClickClose={this.onClickClose.bind(this)} />}
             </div>
         )
+    }
+
+    onClickToCartBtn() {
+        Global.history.push('/cart')
+    }
+    onClickBackBtn() {
+        Global.history.goBack()
     }
 
     onMouseDownCarousel(e: React.MouseEvent): void {

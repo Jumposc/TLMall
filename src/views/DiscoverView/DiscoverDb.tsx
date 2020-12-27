@@ -32,7 +32,7 @@ export interface SpList {
 export interface FollowList {
     nickName: string,
     avatar: string,
-    id: string,
+    userId: string,
 }
 
 export interface UserData {
@@ -190,17 +190,17 @@ export class DiscoverDb {
         return jpsdList
     }
     //获取关注列表
-    getFollowList(userId) {
-        return this.data.userData.find(v => v.userId === userId).followList;
+    getFollowList(userId:string) {
+        return this.data.userData.find(v => v.userId === userId)!.followList as FollowList[];
     }
 
     //判断是否关注
-    isFollow(followList, userId) {
+    isFollow(followList:FollowList[], userId:string) {
         return followList.find(v => v.userId === userId) ? true : false;
     }
 
     //获取交流列表
-    getJlList(userId) {
+    getJlList(userId:string) {
         //查找用户的关注列表
         let followList = this.getFollowList(userId);
         //获取交流列表
@@ -213,7 +213,7 @@ export class DiscoverDb {
     }
 
     //交流列表数据更新关注列表
-    upDateFollowByJl(userId, followList) {
+    upDateFollowByJl(userId:string, followList:FollowList[]) {
         //获取交流列表
         let JlList = this.getJlList(userId);
         //通过userId获取交流列表中关注用户的数据
@@ -223,15 +223,15 @@ export class DiscoverDb {
         //增加/删除关注
         JlList.find(v => v.isFollow === false)
             ? this.addFollow({
-                nickname: followUser.nickName,
-                avatar: followUser.avatar,
-                userId: followUser.userId,
-            }, mine)
+                nickName: followUser!.nickName,
+                avatar: followUser!.avatar,
+                userId: followUser!.userId,
+            }, mine as UserData)
             : this.delFollow(followList, userId);
     }
 
     //获取视频列表
-    getSpList(userId) {
+    getSpList(userId:string) {
         //查找用户的关注列表
         let followList = this.getFollowList(userId);
         //获取交流列表
@@ -244,7 +244,7 @@ export class DiscoverDb {
     }
 
     //视频列表数据更新关注列表
-    upDateFollowBySp(userId, followList) {
+    upDateFollowBySp(userId:string, followList:FollowList[]) {
         //获取交流列表
         let spList = this.getSpList(userId);
         //通过userId获取交流列表中关注用户的数据
@@ -254,21 +254,21 @@ export class DiscoverDb {
         //增加/删除关注
         spList.find(v => v.isFollow === false)
             ? this.addFollow({
-                nickname: followUser.nickName,
-                avatar: followUser.avatar,
-                userId: followUser.userId,
-            }, mine)
+                nickName: followUser!.nickName,
+                avatar: followUser!.avatar,
+                userId: followUser!.userId,
+            }, mine as UserData)
             : this.delFollow(followList, userId);
     }
 
     //添加关注列表关注
-    addFollow(followUser, userData) {
+    addFollow(followUser: FollowList, userData:UserData) {
         //将数据推入关注列表
         userData.followList.push(followUser)
     }
 
     //删除关注列表关注
-    delFollow(followList, userId) {
+    delFollow(followList: any[], userId: string) {
         //获取关注列表用户index
         let index = followList.findIndex(v => v.userId === userId);
         //从关注列表删除对应用户数据

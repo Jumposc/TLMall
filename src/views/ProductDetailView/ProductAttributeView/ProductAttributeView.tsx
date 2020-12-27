@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProductAttributeData } from '../../../models/ProductUtil';
+import { ProductAttributeData } from '../../../../shared/Product/Product';
 import './ProductAttributeView.less'
 
 export interface ProductAttributeViewProps {
@@ -54,11 +54,11 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
                     <div className="amount">
                         <div className="title">数量</div>
                         <div className="count">
-                            <img draggable="false" onClick={()=>{this.onClickBuyNum(this.state.buyNumber - 1)}} 
-                            src={require("../accets/product_attribute_button_sub.png")} alt="" className="sub" />
+                            <img draggable="false" onClick={() => { this.onClickBuyNum(this.state.buyNumber - 1) }}
+                                src={require("../accets/product_attribute_button_sub.png")} alt="" className="sub" />
                             <div className="num">{this.state.buyNumber}</div>
-                            <img draggable="false" onClick={()=>{this.onClickBuyNum(this.state.buyNumber + 1)}} 
-                            src={require("../accets/product_attribute_button_add.png")} alt="" className="add" />
+                            <img draggable="false" onClick={() => { this.onClickBuyNum(this.state.buyNumber + 1) }}
+                                src={require("../accets/product_attribute_button_add.png")} alt="" className="add" />
                         </div>
                     </div>
                     <button className="define" onClick={() => { this.props.onCLickDefine() }}>确定</button>
@@ -72,7 +72,7 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
         this.forceUpdate();
     }
     onClickBuyNum(num: number) {
-        if(num < 1){
+        if (num < 1) {
             return
         }
         this.setState({

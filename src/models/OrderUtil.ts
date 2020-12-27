@@ -1,7 +1,8 @@
 import { CartItem } from './CartUtil'
-import { ProductUtil,ProductData} from './ProductUtil'
 import { ProductAttributeView } from '../views/ProductDetailView/ProductAttributeView/ProductAttributeView';
 import { useRef } from 'react';
+import { ProductData } from '../../shared/Product/Product';
+import { ProductUtil } from './ProductUtil';
 
 export interface OrderItem {
     id: string,

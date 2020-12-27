@@ -53,7 +53,7 @@ const App = () => (
                     path: "/mineorder",
                     load: () => import("./views/MineOrderView/MineOrderView"),
                 },
-                { path: "*", load: () => import("./views/HomeView/HomeView") },
+                { path: "*", load: () => import("./views/LoginView/LoginView") },
             ]}
         />
         <Tab />

@@ -18,8 +18,7 @@ export default class HomeView extends React.Component<HomeViewProps, HomeViewSta
 
     render() {
         return <div className='HomeView'>
-            <h1>This is Home View</h1>
-            <Link to='/other/TestName'>跳到OtherView</Link>
+
         </div>
     }
 }

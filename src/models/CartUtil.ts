@@ -1,5 +1,6 @@
+import { ProductData } from '../../shared/Product/Product'
 import { OrderUtil } from './OrderUtil'
-import { ProductUtil, ProductData } from './ProductUtil'
+import { ProductUtil } from './ProductUtil'
 
 export interface CartItem {
     id: string,

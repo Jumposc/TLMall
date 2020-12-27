@@ -1,23 +1,23 @@
-.ProductAttributeView{
+.ProductAttributeView {
     width: 750px;
     height: 100%;
     position: fixed;
     bottom: 0px;
     background-color: rgba(0, 0, 0, 0.55);
     z-index: 5;
-
-    &.hide{
+    overflow: auto;
+    &.hide {
         display: none;
     }
-    &.show{
+    &.show {
         display: block;
     }
     >.content {
         width: 750px;
         background: #FFF;
-        position: absolute;
-        bottom: 0;
-        padding-bottom: 500px;
+        position: sticky;
+        top:100%;
+        overflow: hidden;
         >.top {
             height: 216px;
             position: relative;
@@ -58,13 +58,13 @@
                     }
                     >ul {
                         display: flex;
-                        flex-wrap: wrap;       
+                        flex-wrap: wrap;
                         >li {
                             text-align: center;
                             line-height: 65px;
                             height: 65px;
                             font-size: 24px;
-                            padding:0 16px;
+                            padding: 0 16px;
                             color: #fff;
                             background-color: rgba(240, 240, 240, 1);
                             color: #999999;
@@ -88,40 +88,38 @@
             }
             >.count {
                 display: flex;
-                align-items:center;
+                align-items: center;
                 margin-top: 24px;
                 >.sub {
-                    flex:0 0 auto;
+                    flex: 0 0 auto;
                     height: 60px;
                     width: 60px;
                 }
-                >.num{
+                >.num {
                     height: 72px;
                     width: 72px;
-                    background-color: rgb(240,240,240);
+                    background-color: rgb(240, 240, 240);
                     color: rgba(228, 33, 33, 1);
                     text-align: center;
                     line-height: 72px;
-                    margin:0 28px;
+                    margin: 0 28px;
                     font-size: 32px;
                 }
                 >.add {
-                    flex:0 0 auto;
+                    flex: 0 0 auto;
                     height: 60px;
                     width: 60px;
                 }
             }
         }
-        >.define{
+        >.define {
             width: 686px;
             height: 88px;
             background-color: rgba(27, 115, 115, 1);
-            position: absolute;
-            bottom: 88px;
-            left: 32px;
             font-weight: bold;
             color: #FFF;
             font-size: 32px;
+            margin: 200px 32px 60px 32px;
         }
     }
 }

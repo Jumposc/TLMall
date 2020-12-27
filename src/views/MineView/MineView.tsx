@@ -14,7 +14,7 @@ export interface MineViewState {
 }
 
 export default class MineView extends React.Component<MineViewProps, MineViewState>{
-    state = {
+    state:MineViewState = {
             data:[],
             showCoupon:true,
     };
@@ -51,7 +51,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getFansNum() {
         let fansNum;
         fansNum = this.state.data.map((v) => {
-            getNum(v);
+            getNum(v.userFans);
         });
         return fansNum;
     }
@@ -60,7 +60,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getFollowNum() {
         let followNum;
         followNum = this.state.data.map((v) => {
-            getNum(v);
+            getNum(v.userFollow);
         });
         return followNum;
     }
@@ -69,7 +69,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getLikesNum() {
         let likesNum;
         likesNum = this.state.data.map((v) => {
-            getNum(v);
+            getNum(v.userLikes);
         });
         return likesNum;
     }
@@ -78,7 +78,7 @@ export default class MineView extends React.Component<MineViewProps, MineViewSta
     getCollectNum() {
         let collectNum;
         collectNum = this.state.data.map((v) => {
-            getNum(v);
+            getNum(v.userCollection);
         });
         return collectNum;
     }

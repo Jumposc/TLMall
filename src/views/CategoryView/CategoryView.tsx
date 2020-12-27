@@ -1,5 +1,6 @@
 import React from 'react';
-import { Category, ProductUtil } from '../../models/ProductUtil';
+import { ProductCategory } from '../../../shared/Product/Product';
+import { ProductUtil } from '../../models/ProductUtil';
 import './CategoryView.less'
 import { SmallCategoryListItemView } from './SmallCategoryListItemView';
 
@@ -16,7 +17,7 @@ export interface CategoryViewState {
     search: string
     categoryNameList: string[] //tab列表名字
     currentTabIndex: number
-    categoryData: Category
+    categoryData: ProductCategory
 }
 
 export default class CategoryView extends React.Component<CategoryViewProps, CategoryViewState> {
