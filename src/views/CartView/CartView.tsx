@@ -151,6 +151,10 @@ export default class CartView extends React.Component<
                 </header>
                 <main>
                     <ul className="cart">
+                        {this.state.cartList.length === 0 && 
+                        <li className="null">
+                            <div>购物车里空空如也</div>
+                        </li>}
                         {this.state.cartList.map((v) => (
                             <li key={v.id}>
                                 <div
@@ -218,6 +222,7 @@ export default class CartView extends React.Component<
                     <div className="may-like">
                         <div className="title">猜你喜欢</div>
                         <ul className="product-list">
+                            
                             {this.state.mayLikeList.map((v) => (
                                 <li key={v.id}>
                                     <div className="img">

@@ -5,6 +5,7 @@ import { GoodsListItemData } from './TestData/OrderInformData';
 
 export interface ShowOrderListViewProps {
     data: GoodsListItemData,
+    status:'待付款'| '待收货'| '待发货'| '待评价'
 
 }
 export interface ShowOrderListViewState {
@@ -12,7 +13,14 @@ export interface ShowOrderListViewState {
 }
 
 export class ShowOrderListView extends React.Component<ShowOrderListViewProps> {
+    btnContentMap = {
+        '待付款':'支付',
+        '待发货':'确认收货',
+        '待收货':'确认收货',
+        '待评价':'评价'
+    }
     render() {
+        
         return (
             <div className="orderList">
                 <div className="sallerInform">
@@ -49,7 +57,7 @@ export class ShowOrderListView extends React.Component<ShowOrderListViewProps> {
                             <button onClick={()=>this.onDelBtn()}>删除订单</button>
                         </div>
                         <div className="Appraise_GoodsItem">
-                            <button >评价商品</button>
+                            <button >{this.btnContentMap[this.props.status]}</button>
                         </div>
                 </div>
             </div>

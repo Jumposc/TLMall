@@ -12,18 +12,14 @@ export interface MineOrderViewProps {
 export interface MineOrderViewState {
     statusList: string[],
     currenttab: number,
-    data: OrderListData,
+    data: OrderListData[],
 }
 
 export default class MineOrderView extends React.Component<MineOrderViewProps, MineOrderViewState> {
-    state:MineOrderViewState = {
-        statusList: ['全部', '代付款', '待收货', '待发货', '待评价'],
+    state: MineOrderViewState = {
+        statusList: ['全部', '待付款', '待收货', '待发货', '待评价'],
         currenttab: 0, //当前订单状态
-        data: {
-            id: 1,
-            orderStatus: '',
-            orderList: []
-        }
+        data: []
 
     }
     onTurnBackMineView() {
@@ -34,22 +30,34 @@ export default class MineOrderView extends React.Component<MineOrderViewProps, M
     onClickChangeTab(i: number) {
         console.log(i);
         this.state.currenttab = i;
+
         let data = OrderInformData.getInstance().getData();
-        let d = data.find(v => (this.state.currenttab === v.id))
-        this.state.data = d as OrderListData;
-        this.forceUpdate();
+        if (this.state.statusList[i] === '全部') {
+            this.state.data = data;
+            this.forceUpdate();
+        }else{
+            let item = data.filter((v)=> v.orderStatus === this.state.statusList[i])
+            if(item === undefined){
+                item = []
+            }
+            this.state.data = item;
+            this.forceUpdate();
+        }
+        // let d = data.find(v => (this.state.currenttab === v.id))
+
     }
 
     //获取数据
     componentDidMount() {
         console.log('111');
         let data = OrderInformData.getInstance().getData();
-        let showData = data.find(v => (this.state.currenttab === v.id));
-        this.state.data = showData as OrderListData
+        // let showData = data.find(v => (this.state.currenttab === v.id));
+        this.state.data = data
         this.forceUpdate();
     }
 
     render() {
+        
         return (
             <div className="MineAllOrderView">
                 <header>
@@ -76,11 +84,11 @@ export default class MineOrderView extends React.Component<MineOrderViewProps, M
 
                         </ul>
                     </div>
-                    {this.state.data.orderList.map((v, i) => {
+                    {this.state.data.map((v, i) => {
                         return (
                             console.log(2222),
                             <div className="orderBlock" key={i}>
-                                <ShowOrderListView data={v} />
+                                <ShowOrderListView data={v.orderData} status={v.orderStatus}/>
                             </div>
                         )
                     })}

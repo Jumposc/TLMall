@@ -61,7 +61,7 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
                                 src={require("../accets/product_attribute_button_add.png")} alt="" className="add" />
                         </div>
                     </div>
-                    <button className="define" onClick={() => { this.props.onCLickDefine() }}>确定</button>
+                    <button className="define" onClick={() => { this.props.onCLickDefine(this.state.buyNumber) }}>确定</button>
                 </div>
             </div>
         )
@@ -78,6 +78,9 @@ export class ProductAttributeView extends React.Component<ProductAttributeViewPr
         this.setState({
             buyNumber: num
         })
+    }
+    getBuyNumber():number{
+        return this.state.buyNumber
     }
 }
 

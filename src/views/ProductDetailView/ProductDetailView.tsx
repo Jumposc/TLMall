@@ -2,6 +2,7 @@ import React from 'react';
 import { ProductData, ProductCommentItem } from '../../../shared/Product/Product';
 import { Global } from '../../models/Global';
 import { ProductUtil } from '../../models/ProductUtil';
+import { CartDB } from '../CartView/CartDB';
 import { ProductAttributeView } from './ProductAttributeView/ProductAttributeView'
 import './ProductDetailView.less'
 
@@ -14,10 +15,12 @@ export interface ProductDetailViewState {
     product: ProductData;
     comments: ProductCommentItem[],
     isOpenPopup: boolean;
+    property:string
 }
 
 export default class ProductDetailView extends React.Component<ProductDetailViewProps, ProductDetailViewState>{
     state = {
+        property:'',
         page: 0,
         carouselMargin: 0,
         isOpenPopup: false,
@@ -70,7 +73,6 @@ export default class ProductDetailView extends React.Component<ProductDetailView
         isDown: false,
         scroll: 0,
     }
-
     async componentWillMount() {
         let product = await ProductUtil.getProduct('1');
         let comments = await ProductUtil.getProductComment('1', 10);
@@ -185,7 +187,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
                         <button className="buy" onClick={() => { this.onClickBuy() }}>立即购买</button>
                     </div>
                 </footer>
-                {this.state.isOpenPopup && <ProductAttributeView attributeData={this.state.product.attribute} onCLickDefine={this.onCLickDefine.bind(this)} onClickClose={this.onClickClose.bind(this)} />}
+                {this.state.isOpenPopup && <ProductAttributeView  attributeData={this.state.product.attribute} onCLickDefine={this.onCLickDefine.bind(this)} onClickClose={this.onClickClose.bind(this)} />}
             </div>
         )
     }
@@ -301,6 +303,7 @@ export default class ProductDetailView extends React.Component<ProductDetailView
         this.setState({
             isOpenPopup: true
         })
+        
     }
 
     onClickBuy(): void {
@@ -315,9 +318,20 @@ export default class ProductDetailView extends React.Component<ProductDetailView
         })
     }
 
-    onCLickDefine() {
+    onCLickDefine(amount:number) {
         this.setState({
             isOpenPopup: false
+        })
+        CartDB.getCartDB().addCartItem({
+            id: Math.random() + '112233',
+            img: this.state.product.imageUrl,
+            name: this.state.product.name,
+            property: this.state.property,
+            price: this.state.product.attribute.price,
+            amount: amount,
+            maxAmount: this.state.product.detail.maxAmount,
+            freight: this.state.product.detail.freight,
+            isSelected: false
         })
     }
 }

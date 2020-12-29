@@ -1,8 +1,8 @@
 
 export interface OrderListData {
     id:number,
-    orderStatus:string,
-    orderList:GoodsListItemData[],
+    orderStatus:'待付款'| '待收货'| '待发货'| '待评价',
+    orderData:GoodsListItemData,
 }
 export interface GoodsListItemData {
     sellerImg:string
@@ -30,8 +30,8 @@ export class OrderInformData {
     data: OrderListData[]= [
         {
             id:0,
-            orderStatus:"全部",
-            orderList:[
+            orderStatus:"待评价",
+            orderData:
                 {
                     sellerImg:'sallerImg.png',
                     sellerName:'莫源',
@@ -44,24 +44,13 @@ export class OrderInformData {
                     goodsAllAccount:'2200',
                     
                 },
-                {
-
-                    sellerImg:'sallerImg2.png',
-                    sellerName:'陈思',
-                    businessStatus:'交易成功',
-                    goodsName:'陈思|景德镇原创国家非遗产手艺陶瓷杯子三件套',
-                    goodsImg:'goodsphoto2.png',
-                    goodsStyleChoice:'蓝绿色',
-                    goodsNum:1,
-                    goodsAccountItem:'·总价￥2300 ·优惠￥100 ·实付款',
-                    goodsAllAccount:'2200',
-                },
-            ]
+                
+            
         },
         {
             id:1,
             orderStatus:"待付款",
-            orderList:[
+            orderData:
                 {
                     sellerImg:'sallerImg.png',
                     sellerName:'莫源',
@@ -73,12 +62,12 @@ export class OrderInformData {
                     goodsAccountItem:'·总价￥2300 ·优惠￥100 ·实付款',
                     goodsAllAccount:'2200',
                 },
-            ]
+            
         }, 
         {
             id:2,
             orderStatus:"待发货",
-            orderList:[
+            orderData:
                 {
                     sellerImg:'sallerImg2.png',
                     sellerName:'陈思',
@@ -91,43 +80,8 @@ export class OrderInformData {
                     goodsAllAccount:'2200',
                     
                 },
-            ]
+            
         }, 
-        {
-            id:3,
-            orderStatus:"待收货",
-            orderList:[
-                {
-                    sellerImg:'sallerImg2.png',
-                    sellerName:'陈思',
-                    businessStatus:'交易成功',
-                    goodsName:'陈思|景德镇原创国家非遗产手艺陶瓷杯子三件套',
-                    goodsImg:'goodsphoto2.png',
-                    goodsStyleChoice:'蓝绿色',
-                    goodsNum:1,
-                    goodsAccountItem:'·总价￥2300 ·优惠￥100 ·实付款',
-                    goodsAllAccount:'2200',
-                    
-                },
-            ]
-        },
-        {
-            id:4,
-            orderStatus:"待评价",
-            orderList:[
-                {
-                    sellerImg:'sallerImg2.png',
-                    sellerName:'陈思',
-                    businessStatus:'交易成功',
-                    goodsName:'陈思|景德镇原创国家非遗产手艺陶瓷杯子三件套',
-                    goodsImg:'goodsphoto2.png',
-                    goodsStyleChoice:'蓝绿色',
-                    goodsNum:1,
-                    goodsAccountItem:'·总价￥2300 ·优惠￥100 ·实付款',
-                    goodsAllAccount:'2200',
-                },
-            ]
-        },
     ]
 
     getData():OrderListData[]{

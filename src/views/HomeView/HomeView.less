@@ -1,15 +1,131 @@
 .HomeView {
-    color: red;
-    line-height: 2em;
-
-    a {
-        background: red;
-        color: white;
-        padding: 20px 40px;
-        display: inline-block;
-
-        &:hover {
-            background: lightcoral;
+    padding: 22px 32px 0 32px;
+    >header {
+        display: flex;
+        justify-content: center;
+        >.logo{
+            width: 68px;
+            height: 68px;
+            margin-right: 26px;
+        }
+        >.search{
+            background-image: url('./assets/nav_search_bg.png');
+            width: 592px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            box-sizing: border-box;
+            >.icon{
+                width: 28px;
+                height: 28px;
+                flex: 0 0 auto;
+                
+            }
+            >input{
+                flex: 1;
+                font-size: 24px;
+                border: none;
+                background: none;
+                outline: none;
+            }
+        }
+    }
+    >section {
+        >.carousel{
+            margin:36px 0 44px 0;
+        }
+        >.area{
+            >ul{
+                display: flex;
+                flex-direction: row;
+                >li{
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    justify-content: center;
+                    align-items: center;
+                    >img{
+                        width: 80px;
+                        height: 80px;
+                        flex: 0 0 auto;
+                    }
+                    div{
+                        flex: 0 0 auto;
+                        margin-top: 9px;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+        >.card{
+            display: flex;
+            flex-wrap: nowrap;
+            overflow: auto;
+            margin:44px 0 36px 0;
+            >img{
+                margin-right: 14px;
+            }
+        }
+        > .may-like {
+            margin-top: 26px;
+            >.tab{
+                display: flex;
+                >div{
+                    color: #999999;
+                    font-size: 28px;
+                    margin-right: 60px;
+                    margin-bottom: 26px;
+                    &.active{
+                        color: #1B7373;
+                        font-size: 32px;
+                        border-bottom: 4px solid #1B7373;
+                        padding-bottom: 2px;
+                    }
+                }
+            }
+            >ul{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                >li{
+                    width: 336px;
+                    margin-bottom: 14px;
+                    cursor: pointer;
+                    >img{
+                        object-fit: contain;
+                        max-width: 336px;
+                        max-height: 336px;
+                    }
+                    >.details{
+                        >.name{
+                            color: #333;
+                            font-size: 28px;
+                            line-height: 42px;
+                            margin: 0 8px;
+                            word-wrap: break-word;
+                        }
+                        >.container{
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 0 8px;
+                            box-sizing: border-box;
+                            margin-top: 8px;
+                            >.price{
+                                flex: 0 0 auto;
+                                font-size: 28px;
+                                color: #E42121;
+                                
+                            }
+                            >.place{
+                                flex:0 0 auto;
+                                color: #999999;
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

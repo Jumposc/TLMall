@@ -10,11 +10,15 @@ export interface LoginViewProps {
 
 export interface LoginViewState {
     currentTabIndex: number;
+    username:string,
+    password:string
 }
 
 export default class LoginView extends React.Component<LoginViewProps, LoginViewState>{
     state = {
-        currentTabIndex: 0
+        currentTabIndex: 0,
+        username:'',
+        password:''
     }
 
     render() {
@@ -33,10 +37,10 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
                             onClick={() => { this._onCipherClick() }}>密码登录</p>
                     </div>
                     <div className="input">
-                        {this.state.currentTabIndex === 0 && <MobileLogin />}
-                        {this.state.currentTabIndex === 1 && <CipherLogin />}
+                        {this.state.currentTabIndex === 0 && <MobileLogin onChangeInput={this.onChangeInput.bind(this)}/>}
+                        {this.state.currentTabIndex === 1 && <CipherLogin onChangeInput={this.onChangeInput.bind(this)}/>}
                     </div>
-                    <button className="loginBtn">登录</button>
+                    <button className="loginBtn" onClick={()=>{this.onClickLogin()}}>登录</button>
                     <p className="p1">未注册手机登录后即自动注册</p>
                     <p className="p2">代表同意手匠用户协议和隐私政策</p>
                 </section>
@@ -66,7 +70,12 @@ export default class LoginView extends React.Component<LoginViewProps, LoginView
     private _onCipherClick() {
         this.setState({ currentTabIndex: 1 })
     }
-    onLoginClick(){
-
+    onChangeInput(key:'username' | 'password',data:string){
+        this.state[key] = data
+    }
+    onClickLogin(){
+        if(this.state.username === 'admin' && this.state.password === '1234'){
+            Global.history.replace('/home')
+        }
     }
 }

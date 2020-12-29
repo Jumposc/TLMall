@@ -57,50 +57,7 @@ export class CartDB {
 
     _data: CartData = {
         cartList: [
-            {
-                id: "11",
-                img: "/src/views/CartView/assets/cart_goods photo.png",
-                name: "莫源 | 独自设计·鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 1000,
-                amount: 5,
-                freight: 5,
-                maxAmount: 10,
-                isSelected: true,
-            },
-            {
-                id: "22",
-                img: "/src/views/CartView/assets/cart_goods photo1.png",
-                name: "独自设计·鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 500,
-                freight: 0,
-                amount: 6,
-                maxAmount: 10,
-                isSelected: false,
-            },
-            {
-                id: "33",
-                img: "/src/views/CartView/assets/cart_goods photo1.png",
-                name: "·鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 700,
-                freight: 20,
-                amount: 2,
-                maxAmount: 10,
-                isSelected: true,
-            },
-            {
-                id: "44",
-                img: "/src/views/CartView/assets/cart_goods photo1.png",
-                name: "莫源 | 鼻烟壶套装加送盒子",
-                property: "绿色",
-                price: 200,
-                freight: 0,
-                amount: 7,
-                maxAmount: 10,
-                isSelected: true,
-            },
+            
         ],
         mayLikeList: [
             {
@@ -224,5 +181,7 @@ export class CartDB {
         this._data.addressList.splice(index, 1)
         return ({ status: 200 })
     }
-
+    addCartItem(item:Product){
+        this._data.cartList.push(item)
+    }
 }

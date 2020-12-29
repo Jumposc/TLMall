@@ -91,18 +91,18 @@ let categoryList: ProductCategory[] =
     [
         {
             id: "1",
-            categoryName: "石头",
+            categoryName: "首饰",
             adUrl: "top_ad.png",
             hotCategoryList: [
                 {
                     id: '1',
-                    name: "香炉",
-                    imageUrl: 'classification_fanshion goods photo3@2x.png'
+                    name: "戒指",
+                    imageUrl: 'classification_fanshion goods.png'
                 },
                 {
                     id: '2',
-                    name: "香炉",
-                    imageUrl: 'classification_fanshion goods photo3@2x.png'
+                    name: "吊坠",
+                    imageUrl: 'classification_ retro product.png'
                 }
             ],
             smallCategoryList: [
@@ -111,13 +111,13 @@ let categoryList: ProductCategory[] =
                     products: [
                         {
                             id: '1',
-                            name: "香炉",
-                            imageUrl: 'classification_fanshion goods photo3@2x.png'
+                            name: "戒指",
+                            imageUrl: 'classification_fanshion goods.png'
                         },
                         {
                             id: '2',
-                            name: "香炉",
-                            imageUrl: 'classification_fanshion goods photo3@2x.png'
+                            name: "吊坠",
+                            imageUrl: 'classification_ retro product.png'
                         }
                     ],
                 },
@@ -125,13 +125,13 @@ let categoryList: ProductCategory[] =
                     name: "复古",
                     products: [
                         {
-                            id: '1',
-                            name: "香炉",
-                            imageUrl: 'classification_fanshion goods photo3@2x.png'
+                            id: '4',
+                            name: "发簪",
+                            imageUrl: 'classification_fanshion goods photo2@2x.png'
                         },
                         {
-                            id: '2',
-                            name: "香炉",
+                            id: '5',
+                            name: "首饰",
                             imageUrl: 'classification_fanshion goods photo3@2x.png'
                         }
                     ],

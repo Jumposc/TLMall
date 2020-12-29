@@ -1,0 +1,213 @@
+.LoginView > header {
+  width: 630px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 146px;
+}
+.LoginView > header > .close {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+.LoginView > header > .logo {
+  width: 184px;
+  height: 90px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 106px;
+}
+.LoginView > header > p {
+  width: 182px;
+  height: 28px;
+  font-size: 20px;
+  color: #333333FF;
+  line-height: 28px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 12px;
+  margin-bottom: 108px;
+  display: block;
+}
+.LoginView > section {
+  width: 630px;
+  margin: 0 auto;
+}
+.LoginView > section > .Login-method {
+  height: 48px;
+}
+.LoginView > section > .Login-method > .mobileBtn {
+  height: 48px;
+  display: inline-block;
+  font-size: 28px;
+  color: #333333FF;
+}
+.LoginView > section > .Login-method > .mobileBtn_ {
+  height: 48px;
+  display: inline-block;
+  font-size: 28px;
+  color: #333333FF;
+  border-bottom: solid 4px #333333FF;
+}
+.LoginView > section > .Login-method > .cipherBtn {
+  height: 48px;
+  display: inline-block;
+  font-size: 28px;
+  color: #333333FF;
+  margin-left: 128px;
+}
+.LoginView > section > .Login-method > .cipherBtn_ {
+  height: 48px;
+  display: inline-block;
+  font-size: 28px;
+  color: #333333FF;
+  margin-left: 128px;
+  border-bottom: solid 4px #333333FF;
+}
+.LoginView > section > .input {
+  width: 630px;
+  height: 258px;
+  margin-bottom: 80px;
+}
+.LoginView > section > .loginBtn {
+  width: 630px;
+  height: 80px;
+  background-color: #1B7373FF;
+  color: #FFFFFFFF;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 80px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+.LoginView > section > p {
+  width: 630px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 28px;
+  color: #999999FF;
+}
+.LoginView > footer {
+  width: 630px;
+  margin: 0 auto;
+  margin-bottom: 200px;
+}
+.LoginView > footer > p {
+  margin-top: 80px;
+  margin-bottom: 36px;
+  color: #999999FF;
+  font-size: 28px;
+  width: 630px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.LoginView > footer > .otherLogin {
+  width: 630px;
+}
+.LoginView > footer > .otherLogin > .Micro {
+  width: 100px;
+  height: 137px;
+  display: inline-block;
+  margin-left: 59px;
+}
+.LoginView > footer > .otherLogin > .Micro > img {
+  width: 100px;
+  height: 100px;
+}
+.LoginView > footer > .otherLogin > .Micro > p {
+  color: #999999FF;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 4px;
+}
+.LoginView > footer > .otherLogin > .QQ {
+  width: 100px;
+  height: 137px;
+  display: inline-block;
+  margin-left: 106px;
+  margin-right: 106px;
+}
+.LoginView > footer > .otherLogin > .QQ > img {
+  width: 100px;
+  height: 100px;
+}
+.LoginView > footer > .otherLogin > .QQ > p {
+  color: #999999FF;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 4px;
+}
+.LoginView > footer > .otherLogin > .Wechat {
+  width: 100px;
+  height: 137px;
+  display: inline-block;
+}
+.LoginView > footer > .otherLogin > .Wechat > img {
+  width: 100px;
+  height: 100px;
+}
+.LoginView > footer > .otherLogin > .Wechat > p {
+  color: #999999FF;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 4px;
+}
+.MobileLogin > .mobile > .mobileInput {
+  width: 630px;
+  height: 100px;
+  border: none;
+  outline-style: none;
+  font-size: 28px;
+  margin-top: 22px;
+}
+.MobileLogin > .line1 {
+  width: 630px;
+  height: 1px;
+  background-color: #E6E6E6FF;
+  margin-bottom: 35px;
+}
+.MobileLogin > .code > .codeInput {
+  width: 486px;
+  height: 100px;
+  border: none;
+  outline-style: none;
+  font-size: 28px;
+}
+.MobileLogin > .code > .getCodeBtn {
+  display: inline-block;
+  font-size: 28px;
+  color: #333333FF;
+}
+.MobileLogin > .line2 {
+  width: 630px;
+  height: 1px;
+  background-color: #E6E6E6FF;
+}
+.CipherLogin > .numInput {
+  width: 630px;
+  height: 100px;
+  border: none;
+  outline-style: none;
+  font-size: 28px;
+  margin-top: 22px;
+}
+.CipherLogin > .line1 {
+  width: 630px;
+  height: 1px;
+  background-color: #E6E6E6FF;
+  margin-bottom: 35px;
+}
+.CipherLogin > .cipherInput {
+  width: 630px;
+  height: 100px;
+  border: none;
+  outline-style: none;
+  font-size: 28px;
+}
+.CipherLogin > .line2 {
+  width: 630px;
+  height: 1px;
+  background-color: #E6E6E6FF;
+}
